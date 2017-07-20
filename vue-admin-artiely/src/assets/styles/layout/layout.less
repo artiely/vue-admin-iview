@@ -1,0 +1,185 @@
+//全局变量
+@import '../variable/variable.less';
+//容器
+.app-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  //路由内容
+  .main-wrapper {
+    transition: all .28s ease-out;
+    margin-left: 190px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background: #eee;
+  }
+  &.hideSidebar {
+    .side-wrapper {
+      transform: translate(-150px, 0);
+      .navbar {
+        transform: translate(150px, 0);
+      }
+      &:hover {
+        transform: translate(0px, 0);
+        .navbar {
+          transform: translate(0px, 0);
+        }
+      }
+    }
+    .main-wrapper {
+      margin-left: 40px;
+    }
+  }
+}
+
+//tHeader
+.header {
+  //background: linear-gradient(-270deg, #16aeff 40%, #4df4ae 120%);
+  //background: linear-gradient(90deg,#15b982,#01d18b);
+  //background: linear-gradient(90deg,#404040, rgba(64, 64, 64, 0.9));
+  background: @header-bg;
+  height: 50px;
+  width: 100%;
+  color: @header-text;
+  box-shadow: 1px 2px 10px rgba(0,0,0,.2);
+  z-index: 99;
+  position: relative;
+  .userBox {
+    height: 50px;
+    line-height: 50px;
+    float: right;
+    padding: 0 10px;
+  }
+  .nav-icon {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 24px;
+    float: left;
+    &:hover {
+      background: rgba(0, 0, 0, .1);
+      cursor: pointer;
+    }
+  }
+  .searchBox {
+    float: right;
+    margin-top: 10px;
+    padding: 0 10px;
+    i {
+      position: relative;
+      left: 30px;
+      top: 3px;
+      font-size: 20px;
+    }
+    .search {
+      text-indent: 30px;
+      height: 30px;
+      width: 50px;
+      border:1px solid @header-text;
+      background: rgba(255, 255, 255, .3);
+      text-align: left;
+      outline: none;
+      border-radius: 15px;
+      transition: all .28s ease-out;
+      color: @header-text;
+
+    }
+  }
+  .messageBox {
+    height: 50px;
+    float: right;
+
+    .iconBox {
+      font-size: 24px;
+      line-height: 50px;
+      width: 50px;
+      text-align: center;
+      cursor: pointer;
+      display: inline-block;
+    }
+  }
+  .expand-screen {
+    //position: absolute;
+    //right:0;
+    //top:0;
+    display: inline-block;
+    float: right;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    line-height: 50px;
+    font-size: 24px;
+    color: @legend-color;
+    cursor: pointer;
+  }
+}
+
+//navBar
+.side-wrapper {
+  transition: all .28s ease-out;
+  position: absolute;
+  width: 190px;
+  background: @side-bar-bg;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 99;
+  overflow: hidden;
+  .navbar {
+    transition: all .28s ease-out;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    bottom: 0;
+    right: -17px;
+
+  }
+  .logo-box {
+    font-size: 30px;
+    color: #fff;
+  }
+}
+
+.main-container {
+  height: 100%;
+  background: @container-bg;
+}
+
+.container {
+  height: 100%;
+  overflow: scroll;
+  text-align: left;
+}
+
+#sticker {
+  height: auto;
+  padding: 8px 8px 40px 8px;
+  min-height: 100%;
+}
+
+#stickerCon {
+  padding-bottom: 40px;
+  box-sizing: inherit;
+}
+
+#footer {
+  margin-top: -75px;
+  height: 40px;
+  width: 100%;
+  text-align: center;
+  line-height: 40px;
+  color: #ABA498;
+  font-size: 12px;
+  background: #fafafa;
+  border-top: 1px solid #E7E7E7;
+  position: relative;
+  z-index: 9;
+}

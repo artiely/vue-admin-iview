@@ -1,0 +1,51 @@
+//覆盖组件的样式
+//导航菜单的样式
+.ivu-menu-dark{
+  background: transparent !important;
+}
+.ivu-menu-vertical .ivu-menu-item, .ivu-menu-vertical .ivu-menu-submenu-title{
+  text-align: left;
+}
+.ivu-menu-submenu-title > i, .ivu-menu-submenu-title span > i{
+  margin-right: 14px;
+}
+.ivu-menu-vertical .ivu-menu-submenu .ivu-menu-item{
+  padding-left: 44px;
+}
+.ivu-menu-vertical .ivu-menu-item, .ivu-menu-vertical .ivu-menu-submenu-title{
+  padding: 14px;
+}
+.ivu-menu-item > i{
+  margin-right: 14px;
+}
+.ivu-menu-dark.ivu-menu-vertical .ivu-menu-submenu .ivu-menu-item-active, .ivu-menu-dark.ivu-menu-vertical .ivu-menu-submenu .ivu-menu-item-active:hover{
+  color: #3399ff;
+  border-right: 2px solid #3399ff;
+  background: #313540!important;
+}
+.ivu-menu-dark.ivu-menu-vertical .ivu-menu-opened{
+  background: #333;
+}
+.ivu-menu-dark.ivu-menu-vertical .ivu-menu-opened .ivu-menu-submenu-title{
+  background: #5f5f5f;
+}
+//去掉表格的边框
+.ivu-table-wrapper{
+  border:none;
+}
+.ivu-table th, .ivu-table td{
+  border:none;
+}
+.ivu-table:before{
+  background: none;
+}
+.ivu-table:after{
+  background: none;
+}
+//badge
+.ivu-badge-count{
+  border:none;
+  box-shadow: none;
+  min-width:18px;
+  height:18px;
+}
