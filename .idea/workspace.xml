@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="87920d27-e4af-476f-a143-4383e55850c7" name="Default" comment="" />
+    <list default="true" id="87920d27-e4af-476f-a143-4383e55850c7" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vue-admin-artiely/src/assets/styles/base/base.less" afterPath="$PROJECT_DIR$/vue-admin-artiely/src/assets/styles/base/base.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vue-admin-artiely/src/assets/styles/cover/cover.less" afterPath="$PROJECT_DIR$/vue-admin-artiely/src/assets/styles/cover/cover.less" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vue-admin-artiely/src/components/layout/Full.vue" afterPath="$PROJECT_DIR$/vue-admin-artiely/src/components/layout/Full.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vue-admin-artiely/src/components/pages/Login.vue" afterPath="$PROJECT_DIR$/vue-admin-artiely/src/components/pages/Login.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vue-admin-artiely/src/components/views/Index.vue" afterPath="$PROJECT_DIR$/vue-admin-artiely/src/components/views/Index.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vue-admin-artiely/src/main.js" afterPath="$PROJECT_DIR$/vue-admin-artiely/src/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/vue-admin-artiely/src/router/index.js" afterPath="$PROJECT_DIR$/vue-admin-artiely/src/router/index.js" />
+    </list>
     <ignored path="vue-admin-artiely.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -24,8 +32,8 @@
       <file leaf-file-name="Login.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vue-admin-artiely/src/components/pages/Login.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="209">
-              <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+            <state relative-caret-position="760">
+              <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -110,7 +118,7 @@
       <file leaf-file-name="List.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/vue-admin-artiely/src/components/views/List.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1444">
+            <state relative-caret-position="1482">
               <caret line="78" column="5" lean-forward="false" selection-start-line="78" selection-start-column="5" selection-end-line="83" selection-end-column="8" />
               <folding>
                 <element signature="n#style#0;n#Page#0;n#Card#0;n#Row#0;n#div#0;n#template#0;n#!!top" expanded="true" />
@@ -122,11 +130,9 @@
       <file leaf-file-name="Index.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/vue-admin-artiely/src/components/views/Index.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-76">
+            <state relative-caret-position="19">
               <caret line="2" column="2" lean-forward="false" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="2" />
-              <folding>
-                <element signature="e#884#934#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -147,6 +153,9 @@
       <find>limit</find>
       <find>params</find>
     </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -279,6 +288,7 @@
       </profile-state>
     </entry>
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -294,8 +304,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -745,11 +755,12 @@
       <workItem from="1500173415899" duration="363000" />
       <workItem from="1500516376102" duration="12791000" />
       <workItem from="1500550232244" duration="3330000" />
+      <workItem from="1500602586751" duration="207000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="112830000" />
+    <option name="totallyTimeSpent" value="113037000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -762,11 +773,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="3" y="6" width="1382" height="738" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2284041" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -878,7 +890,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -984,7 +995,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="17" column="26" lean-forward="false" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1045,17 +1055,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="551">
           <caret line="47" column="30" lean-forward="true" selection-start-line="47" selection-start-column="30" selection-end-line="47" selection-end-column="30" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="n#Menu#0;n#nav-bar#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#p#0;n#Modal#0;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#Modal#0;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#Input#0;n#div#0;n#Modal#0;n#div#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="e#3221#3277#0" expanded="false" />
-            <element signature="e#3737#3967#0" expanded="false" />
-            <element signature="e#3983#4062#0" expanded="false" />
-            <element signature="e#4077#4085#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1084,7 +1083,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
           <caret line="7" column="38" lean-forward="false" selection-start-line="7" selection-start-column="38" selection-end-line="7" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1119,8 +1117,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/vue-admin-artiely/src/components/pages/Login.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        <state relative-caret-position="760">
+          <caret line="40" column="0" lean-forward="false" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1181,7 +1179,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/vue-admin-artiely/src/components/views/List.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1444">
+        <state relative-caret-position="1482">
           <caret line="78" column="5" lean-forward="false" selection-start-line="78" selection-start-column="5" selection-end-line="83" selection-end-column="8" />
           <folding>
             <element signature="n#style#0;n#Page#0;n#Card#0;n#Row#0;n#div#0;n#template#0;n#!!top" expanded="true" />
@@ -1191,11 +1189,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/vue-admin-artiely/src/components/views/Index.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-76">
+        <state relative-caret-position="19">
           <caret line="2" column="2" lean-forward="false" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="2" />
-          <folding>
-            <element signature="e#884#934#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>

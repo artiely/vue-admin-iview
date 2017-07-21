@@ -1,12 +1,14 @@
 <template>
   <div class="app-wrapper" :class="{hideSidebar:!sidebar.opened}">
+    <!-- 左侧 -->
     <div class="side-wrapper">
-      <div style="height:50px;" class="logo-box">
-      </div>
+      <!-- logo -->
+      <div style="height:50px;" class="logo-box"></div>
+      <!-- logo /-->
+      <!-- 左侧导航 -->
       <nav-bar>
         <Menu width="220" theme="dark" :accordion="true"  @on-select="selectFn" >
           <div v-for="(item,index) in menu " :key="item._id">
-
             <Submenu :name="index" v-if="item.children" >
               <template slot="title">
                 <Icon :type="item.icon?item.icon:'checkmark'"></Icon>
@@ -24,10 +26,13 @@
           </div>
         </Menu>
       </nav-bar>
+      <!-- 左侧导航 /-->
     </div>
+    <!-- 左侧 /-->
+    <!-- 主体 -->
     <div class="main-wrapper">
+      <!-- 头部 -->
       <t-header>
-
         <Dropdown class="userBox">
           <a href="javascript:void(0)">
             Artiely
@@ -56,8 +61,11 @@
           <input type="text" class="search" ref="search" v-model="value">
         </div>
       </t-header>
+      <!-- 头部 /-->
+      <!-- 内容部分 -->
       <div class="main-container">
         <container>
+          <!-- 面包屑 -->
           <Breadcrumb>
             <Breadcrumb-item href="/">
               <Icon type="ios-home-outline"></Icon>
@@ -72,12 +80,18 @@
               Breadcrumb
             </Breadcrumb-item>
           </Breadcrumb>
+           <!-- 面包屑 /-->
+           <!-- 路由 -->
           <transition name="fade" mode="out-in">
             <router-view></router-view>
           </transition>
+          <!-- 路由/ -->
         </container>
       </div>
+      <!-- 内容部分 /-->
+     
     </div>
+    <!-- 主体 /-->
     <Modal v-model="modalUser" width="360">
       <p slot="header" style="color:#f60;text-align:center">
         <Icon type="information-circled"></Icon>
@@ -147,8 +161,9 @@
         this.modal_loading = true;
         setTimeout(() => {
           this.modal_loading = false;
-          this.modal2 = false;
+          this.modalUser=false
           this.$Message.success('成功');
+          this.$router.push('/userInfo');
         }, 2000);
       },
       selectFn(a){
