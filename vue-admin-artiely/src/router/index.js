@@ -1,7 +1,8 @@
 import Vue from 'vue'
+import store from '@/store'
 import Router from 'vue-router'
 import Hello from '@/components/Hello'
-import Full from '@/components/layout/Full'
+import Home from '@/components/layout/Home'
 import Index from '@/components/views/Index'
 import Login from '@/components/pages/Login'
 import List from '@/components/views/List'
@@ -13,8 +14,9 @@ Vue.use(Router)
 
 const routes = [{
         path: '/',
-        name: 'full',
-        component: Full,
+        name: 'home',
+        component: Home,
+        redirect: '/index',
         children: [{
                 path: '/index',
                 name: 'index',
@@ -47,7 +49,11 @@ router.beforeEach((to, from, next) => {
     iView.LoadingBar.start();
     if (to.meta.requiresAuth) {
         if (true) {
-            next()
+            next(vm => {
+                alert(1)
+                console.log("toname", to.name)
+                vm.$store.dispatch('getCurrentPageName', to.name)
+            })
         } else {
             next({
                 path: '/login',
@@ -55,6 +61,9 @@ router.beforeEach((to, from, next) => {
             });
         }
     } else {
+        console.log("toname", to.name)
+        console.log(store.dispatch('getCurrentPageName', to.name))
+            // store.actions.getCurrentPageName(to.name)
         next()
     }
 });

@@ -2,8 +2,9 @@
   <div class="login">
     <div class="bg">
     </div>
-    <Modal v-model="loginModal" width="360" style="background:rgba(255,255,255,.5)" :mask-closable="false">
+    <Modal v-model="loginModal" width="360" :closable="false" style="background:rgba(255,255,255,.5)" :mask-closable="false">
       <div style="text-align:center">
+        <h2 style="margin:10px;color:#abcdef">Artiely-Admin</h2>
         <Form ref="formValidate" :model="formValidate" :rules="ruleValidate" >
           <Form-item  prop="name">
             <Input v-model="formValidate.name" placeholder="请输入姓名"></Input>
@@ -48,7 +49,8 @@ export default {
         setTimeout(() => {
           this.modal_loading = false;
           if (valid) {
-            this.$Message.success('提交成功!');
+            this.$Message.success('登录成功!');
+            this.$router.push('/')
           } else {
             this.$Message.error('表单验证失败!');
           }
