@@ -42,7 +42,7 @@ export default {
     }
   },
   methods: {
-    handleSubmit(name) {
+    handleSubmit(name) { //login
       this.$refs[name].validate((valid) => {
         this.modal_loading = true;
         setTimeout(() => {
