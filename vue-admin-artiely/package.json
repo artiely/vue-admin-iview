@@ -17,6 +17,7 @@
     "iview": "^2.0.0-rc.18",
     "js-cookie": "^2.1.4",
     "vue": "^2.3.3",
+    "vue-echarts-v3": "^1.0.4",
     "vue-router": "^2.3.1",
     "vuex": "^2.3.1"
   },
@@ -70,7 +71,7 @@
     "shelljs": "^0.7.6",
     "sinon": "^2.1.0",
     "sinon-chai": "^2.8.0",
-    "jquery" : "^2.2.3",
+    "jquery": "^2.2.3",
     "url-loader": "^0.5.8",
     "vue-loader": "^12.1.0",
     "vue-style-loader": "^3.0.1",

@@ -6,6 +6,7 @@ import Home from '@/components/layout/Home'
 import Index from '@/components/views/Index'
 import Login from '@/components/pages/Login'
 import List from '@/components/views/List'
+import Chart from '@/components/views/Chart'
 import UserInfo from '@/components/views/UserInfo'
 import iView from 'iview';
 Vue.use(iView);
@@ -23,9 +24,14 @@ const routes = [{
                 component: Index
             },
             {
-                path: '/list/1',
+                path: '/list',
                 name: 'list',
                 component: List
+            },
+            {
+                path: '/chart',
+                name: 'chart',
+                component: Chart
             },
             {
                 path: '/userInfo',
@@ -61,9 +67,7 @@ router.beforeEach((to, from, next) => {
             });
         }
     } else {
-        console.log("toname", to.name)
-        console.log(store.dispatch('getCurrentPageName', to.name))
-            // store.actions.getCurrentPageName(to.name)
+        store.dispatch('getCurrentPageName', to.name)
         next()
     }
 });

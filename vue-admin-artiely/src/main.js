@@ -10,6 +10,8 @@ import "./assets/styles/layout/layout.less"; //引入布局样式
 import "./assets/styles/cover/cover.less"; //覆盖样式
 import "./assets/styles/base/base.less";
 
+import IEcharts from 'vue-echarts-v3/src/full.vue';
+
 Vue.use(iView);
 import $ from 'jquery'
 Vue.config.productionTip = false;
