@@ -2,6 +2,13 @@
 
 > vue-admin by iview
 
+@import "login.png"
+@import "index.png"
+@import "login.png"
+@import "full.png"
+
+
+
 ## Build Setup
 
 ``` bash
