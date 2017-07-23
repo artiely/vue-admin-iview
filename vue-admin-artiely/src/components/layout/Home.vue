@@ -71,9 +71,9 @@
               Home
             </Breadcrumb-item>
             <!-- <Breadcrumb-item href="/components/breadcrumb">
-              <Icon type="social-buffer-outline"></Icon>
-              Components
-            </Breadcrumb-item> -->
+                              <Icon type="social-buffer-outline"></Icon>
+                              Components
+                            </Breadcrumb-item> -->
             <Breadcrumb-item>
               <Icon type="pound"></Icon>
               {{currentPageName}}
@@ -94,14 +94,17 @@
     <Modal v-model="modalUser" width="360">
       <p slot="header" style="color:#f60;text-align:center">
         <Icon type="information-circled"></Icon>
-        <span>操作提示!</span>
+        <span>此操作需要输入登录密码!</span>
       </p>
       <div style="text-align:center">
-        <p>此操作需要输入登录密码。</p>
-        <Input v-model="check_password" type="password" icon="ios-locked-outline" placeholder="请输入..." style="width: 300px"></Input>
+        <Form ref="formValidate" :model="formValidate" :rules="ruleValidate">
+          <Form-item prop="check_password">
+            <Input v-model="formValidate.check_password" type="password" icon="ios-locked-outline" placeholder="请输入..." style="width: 300px"></Input>
+          </Form-item>
+        </Form>
       </div>
       <div slot="footer">
-        <Button type="info" size="large" long :loading="modal_loading" @click="checkUser">确定</Button>
+        <Button type="info" size="large" long :loading="modal_loading" @click="checkUser('formValidate')">确定</Button>
       </div>
     </Modal>
   </div>
@@ -117,12 +120,28 @@ export default {
   name: 'full',
   components: { THeader, NavBar, Container },
   data() {
+    const validatePass = (rule, value, callback) => {
+      if (value === '') {
+        callback(new Error('请输入密码'));
+      } else if (value !== '123456') {
+        callback(new Error('密码错误'));
+      } else {
+        callback();
+      }
+    };
     return {
       value: '',
       modalUser: false,
       modal_loading: false,
-      check_password: '',
-      menu: []
+      formValidate: {
+        check_password: '',
+      },
+      menu: [],
+      ruleValidate: {
+        check_password: [
+          { validator: validatePass, trigger: 'blur' }
+        ],
+      }
     }
   },
   created() {
@@ -143,7 +162,7 @@ export default {
     sidebar() {
       return this.$store.state.app.sidebar;
     },
-    currentPageName(){
+    currentPageName() {
       return this.$store.state.app.router.currentPageName;
     }
   },
@@ -151,14 +170,24 @@ export default {
 
   },
   methods: {
-    checkUser() {
+    checkUser(name) {
       this.modal_loading = true;
-      setTimeout(() => {
-        this.modal_loading = false;
-        this.modalUser = false
-        this.$Message.success('成功');
-        this.$router.push('/userInfo');
-      }, 2000);
+      this.$refs[name].validate((valid) => {
+        setTimeout(() => {
+          if (valid) {
+            this.$Message.success('验证成功');
+            this.$router.push('/userInfo');
+            this.modalUser = false
+          } else {
+            this.$Notice.warning({
+                    title: '提示',
+                    desc: '密码 : 123456'
+                });
+            this.$Message.error('表单验证失败!');
+          }
+          this.modal_loading = false;
+        }, 2000);
+      })
     },
     /**
      * 选择菜单
