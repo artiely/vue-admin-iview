@@ -170,7 +170,8 @@ export default {
      *退出 
      */
     logout() {
-      this.$router.push('/login')
+      this.$router.push('/login');
+      this.$Message.success('退出成功');
     }
   }
 }

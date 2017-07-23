@@ -61,10 +61,16 @@
           <Icon type="ios-loop-strong"></Icon>
         </a>
         <Steps :current="2" direction="vertical" size="small">
-          <Step title="已完成" content="这里是该步骤的描述信息"></Step>
-          <Step title="已完成" content="这里是该步骤的描述信息"></Step>
-          <Step title="进行中" content="这里是该步骤的描述信息"></Step>
-          <Step title="待进行" content="这里是该步骤的描述信息"></Step>
+          <Step title="已完成" content="">
+             <div style="font-size: 12px; color: gray">这里是该步骤的描述信息1</div>
+             <div style="font-size: 12px; color: gray">这里是该步骤的描述信息1</div>
+             <div style="font-size: 12px; color: gray">这里是该步骤的描述信息1</div>
+             <div style="font-size: 12px; color: gray">这里是该步骤的描述信息1</div>
+          </Step>
+          <Step title="已完成" content="这里是该步骤的描述信息1"></Step>
+          <Step title="已完成" content="这里是该步骤的描述信息2"></Step>
+          <Step title="进行中" content="这里是该步骤的描述信息3"></Step>
+          <Step title="待进行" content="这里是该步骤的描述信息4"></Step>
         </Steps>
       </Card>
       </Col>

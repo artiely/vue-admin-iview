@@ -1,0 +1,136 @@
+文件夹 PATH 列表
+卷序列号为 0003-EDAD
+C:.
+│  .babelrc
+│  .editorconfig
+│  .gitignore
+│  .postcssrc.js
+│  index.html
+│  package.json
+│  README.md
+│  tree.txt
+│  
+├─build
+│      build.js
+│      check-versions.js
+│      dev-client.js
+│      dev-server.js
+│      utils.js
+│      vue-loader.conf.js
+│      webpack.base.conf.js
+│      webpack.dev.conf.js
+│      webpack.prod.conf.js
+│      webpack.test.conf.js
+│      
+├─config
+│      dev.env.js
+│      index.js
+│      prod.env.js
+│      test.env.js
+│      
+├─node_modules
+│  
+├─src
+│  │  App.vue
+│  │  main.js
+│  │  
+│  ├─api
+│  │      api.js
+│  │      config.js
+│  │      index.js
+│  │      menu.js
+│  │      user.js
+│  │      
+│  ├─assets
+│  │  ├─iconfont
+│  │  ├─img
+│  │  │      fullstack.jpg
+│  │  │      logo.png
+│  │  │      
+│  │  ├─js
+│  │  └─styles
+│  │      ├─base
+│  │      │      base.css
+│  │      │      base.less
+│  │      │      
+│  │      ├─cover
+│  │      │      cover.less
+│  │      │      
+│  │      ├─layout
+│  │      │      layout.less
+│  │      │      
+│  │      └─variable
+│  │              variable.less
+│  │              
+│  ├─common
+│  │  ├─directive
+│  │  └─utils
+│  │      └─fetch
+│  │              index.js
+│  │              
+│  ├─components
+│  │  │  Hello.vue
+│  │  │  
+│  │  ├─layout
+│  │  │  │  Home.vue
+│  │  │  │  
+│  │  │  ├─aside
+│  │  │  │      aside.vue
+│  │  │  │      
+│  │  │  ├─base
+│  │  │  │      Box.vue
+│  │  │  │      
+│  │  │  ├─container
+│  │  │  │      Container.vue
+│  │  │  │      
+│  │  │  ├─header
+│  │  │  │      THeader.vue
+│  │  │  │      
+│  │  │  └─navbar
+│  │  │          NavBar.vue
+│  │  │          
+│  │  ├─pages
+│  │  │      404.vue
+│  │  │      500.vue
+│  │  │      Login.vue
+│  │  │      
+│  │  └─views
+│  │          Index.vue
+│  │          List.vue
+│  │          UserInfo.vue
+│  │          
+│  ├─router
+│  │      index.js
+│  │      
+│  └─store
+│      │  index.js
+│      │  
+│      └─modules
+│              app.js
+│              
+├─static
+│  │  .gitkeep
+│  │  
+│  └─img
+│          fullstack.jpg
+│          logo.png
+│          
+└─test
+    ├─e2e
+    │  │  nightwatch.conf.js
+    │  │  runner.js
+    │  │  
+    │  ├─custom-assertions
+    │  │      elementCount.js
+    │  │      
+    │  └─specs
+    │          test.js
+    │          
+    └─unit
+        │  .eslintrc
+        │  index.js
+        │  karma.conf.js
+        │  
+        └─specs
+                Hello.spec.js
+                
