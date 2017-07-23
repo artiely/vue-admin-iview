@@ -7,6 +7,13 @@
 ![](list.png)
 ![](full.png)
 
+## 技术栈
+ vue 
+ vue-cli
+ vuex 
+ vue-router 
+ axios 
+
 ## Build Setup
 
 ``` bash
