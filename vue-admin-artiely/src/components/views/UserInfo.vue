@@ -2,10 +2,10 @@
 <Card>
   <Form ref="formValidate" :model="formValidate" :rules="ruleValidate" :label-width="80">
     <Form-item label="姓名" prop="name">
-      <Input v-model="formValidate.name" placeholder="请输入姓名"></Input>
+      <Input v-model=" formValidate.name " placeholder="请输入姓名"></Input>
     </Form-item>
     <Form-item label="邮箱" prop="mail">
-      <Input v-model="formValidate.mail" placeholder="请输入邮箱"></Input>
+      <Input v-model=" formValidate.mail " placeholder="请输入邮箱"></Input>
     </Form-item>
     <Form-item label="城市" prop="city">
       <Select v-model="formValidate.city" placeholder="请选择所在地">
