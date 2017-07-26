@@ -1,11 +1,13 @@
 # vue-admin-artiely
 
 > vue-admin by iview
+## 项目截图
 
 ![](login.png)
 ![](index.png)
 ![](list.png)
 ![](full.png)
+![](chart.png)
 
 ## 技术栈
  vue 
