@@ -52,11 +52,10 @@ const router = new Router({
     routes
 });
 router.beforeEach((to, from, next) => {
-    iView.LoadingBar.start();
+    // iView.LoadingBar.start();
     if (to.meta.requiresAuth) {
         if (true) {
             next(vm => {
-                alert(1)
                 console.log("toname", to.name)
                 vm.$store.dispatch('getCurrentPageName', to.name)
             })
@@ -73,7 +72,7 @@ router.beforeEach((to, from, next) => {
 });
 
 router.afterEach((to, from, next) => {
-    iView.LoadingBar.finish();
+    // iView.LoadingBar.finish();
 });
 
 export default router;
