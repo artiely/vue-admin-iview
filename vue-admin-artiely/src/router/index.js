@@ -8,6 +8,7 @@ import Login from '@/components/pages/Login'
 import List from '@/components/views/List'
 import Chart from '@/components/views/Chart'
 import UserInfo from '@/components/views/UserInfo'
+import E404 from '@/components/pages/E404'
 import iView from 'iview';
 Vue.use(iView);
 
@@ -44,6 +45,11 @@ const routes = [{
         path: '/login',
         name: 'login',
         component: Login
+    },
+    {
+        path: '/error404',
+        name: 'error404',
+        component: E404
     },
 
 ]

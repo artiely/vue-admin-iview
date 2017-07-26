@@ -17,6 +17,11 @@ const menu = [{
         url: '/chart',
         icon: 'checkmark',
         _id: '1_1'
+    }, {
+        name: '404',
+        url: '/error404',
+        icon: 'checkmark',
+        _id: '1_2'
     }]
 }]
 
