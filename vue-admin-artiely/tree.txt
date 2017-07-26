@@ -1,136 +1,74 @@
-ÎÄ¼þ¼Ð PATH ÁÐ±í
-¾íÐòÁÐºÅÎª 0003-EDAD
-C:.
-©¦  .babelrc
-©¦  .editorconfig
-©¦  .gitignore
-©¦  .postcssrc.js
-©¦  index.html
-©¦  package.json
-©¦  README.md
-©¦  tree.txt
-©¦  
-©À©¤build
-©¦      build.js
-©¦      check-versions.js
-©¦      dev-client.js
-©¦      dev-server.js
-©¦      utils.js
-©¦      vue-loader.conf.js
-©¦      webpack.base.conf.js
-©¦      webpack.dev.conf.js
-©¦      webpack.prod.conf.js
-©¦      webpack.test.conf.js
-©¦      
-©À©¤config
-©¦      dev.env.js
-©¦      index.js
-©¦      prod.env.js
-©¦      test.env.js
-©¦      
-©À©¤node_modules
-©¦  
-©À©¤src
-©¦  ©¦  App.vue
-©¦  ©¦  main.js
-©¦  ©¦  
-©¦  ©À©¤api
-©¦  ©¦      api.js
-©¦  ©¦      config.js
-©¦  ©¦      index.js
-©¦  ©¦      menu.js
-©¦  ©¦      user.js
-©¦  ©¦      
-©¦  ©À©¤assets
-©¦  ©¦  ©À©¤iconfont
-©¦  ©¦  ©À©¤img
-©¦  ©¦  ©¦      fullstack.jpg
-©¦  ©¦  ©¦      logo.png
-©¦  ©¦  ©¦      
-©¦  ©¦  ©À©¤js
-©¦  ©¦  ©¸©¤styles
-©¦  ©¦      ©À©¤base
-©¦  ©¦      ©¦      base.css
-©¦  ©¦      ©¦      base.less
-©¦  ©¦      ©¦      
-©¦  ©¦      ©À©¤cover
-©¦  ©¦      ©¦      cover.less
-©¦  ©¦      ©¦      
-©¦  ©¦      ©À©¤layout
-©¦  ©¦      ©¦      layout.less
-©¦  ©¦      ©¦      
-©¦  ©¦      ©¸©¤variable
-©¦  ©¦              variable.less
-©¦  ©¦              
-©¦  ©À©¤common
-©¦  ©¦  ©À©¤directive
-©¦  ©¦  ©¸©¤utils
-©¦  ©¦      ©¸©¤fetch
-©¦  ©¦              index.js
-©¦  ©¦              
-©¦  ©À©¤components
-©¦  ©¦  ©¦  Hello.vue
-©¦  ©¦  ©¦  
-©¦  ©¦  ©À©¤layout
-©¦  ©¦  ©¦  ©¦  Home.vue
-©¦  ©¦  ©¦  ©¦  
-©¦  ©¦  ©¦  ©À©¤aside
-©¦  ©¦  ©¦  ©¦      aside.vue
-©¦  ©¦  ©¦  ©¦      
-©¦  ©¦  ©¦  ©À©¤base
-©¦  ©¦  ©¦  ©¦      Box.vue
-©¦  ©¦  ©¦  ©¦      
-©¦  ©¦  ©¦  ©À©¤container
-©¦  ©¦  ©¦  ©¦      Container.vue
-©¦  ©¦  ©¦  ©¦      
-©¦  ©¦  ©¦  ©À©¤header
-©¦  ©¦  ©¦  ©¦      THeader.vue
-©¦  ©¦  ©¦  ©¦      
-©¦  ©¦  ©¦  ©¸©¤navbar
-©¦  ©¦  ©¦          NavBar.vue
-©¦  ©¦  ©¦          
-©¦  ©¦  ©À©¤pages
-©¦  ©¦  ©¦      404.vue
-©¦  ©¦  ©¦      500.vue
-©¦  ©¦  ©¦      Login.vue
-©¦  ©¦  ©¦      
-©¦  ©¦  ©¸©¤views
-©¦  ©¦          Index.vue
-©¦  ©¦          List.vue
-©¦  ©¦          UserInfo.vue
-©¦  ©¦          
-©¦  ©À©¤router
-©¦  ©¦      index.js
-©¦  ©¦      
-©¦  ©¸©¤store
-©¦      ©¦  index.js
-©¦      ©¦  
-©¦      ©¸©¤modules
-©¦              app.js
-©¦              
-©À©¤static
-©¦  ©¦  .gitkeep
-©¦  ©¦  
-©¦  ©¸©¤img
-©¦          fullstack.jpg
-©¦          logo.png
-©¦          
-©¸©¤test
-    ©À©¤e2e
-    ©¦  ©¦  nightwatch.conf.js
-    ©¦  ©¦  runner.js
-    ©¦  ©¦  
-    ©¦  ©À©¤custom-assertions
-    ©¦  ©¦      elementCount.js
-    ©¦  ©¦      
-    ©¦  ©¸©¤specs
-    ©¦          test.js
-    ©¦          
-    ©¸©¤unit
-        ©¦  .eslintrc
-        ©¦  index.js
-        ©¦  karma.conf.js
-        ©¦  
-        ©¸©¤specs
+ï»¿â”‚  .babelrc
+â”‚  .editorconfig
+â”‚  .gitignore
+â”‚  .postcssrc.js
+â”‚  index.html
+â”‚  package.json
+â”‚  README.md
+â”‚  tree.txt
+â”‚  
+â”œâ”€build
+â”‚      
+â”œâ”€config
+â”‚      
+â”œâ”€node_modules
+â”‚  
+â”œâ”€src
+â”‚  â”‚  App.vue
+â”‚  â”‚  main.js
+â”‚  â”‚  
+â”‚  â”œâ”€api
+â”‚  â”‚      
+â”‚  â”œâ”€assets
+â”‚  â”‚  â”œâ”€iconfont
+â”‚  â”‚  â”œâ”€img
+â”‚  â”‚  â”œâ”€js
+â”‚  â”‚  â””â”€styles
+â”‚  â”‚      â”œâ”€base
+â”‚  â”‚      â”œâ”€cover
+â”‚  â”‚      â”œâ”€layout
+â”‚  â”‚      â””â”€variable
+â”‚  â”‚              
+â”‚  â”œâ”€common
+â”‚  â”‚  â”œâ”€directive
+â”‚  â”‚  â””â”€utils
+â”‚  â”‚              
+â”‚  â”œâ”€components
+â”‚  â”‚  â”‚  
+â”‚  â”‚  â”œâ”€layout
+â”‚  â”‚  â”‚          
+â”‚  â”‚  â”œâ”€pages
+â”‚  â”‚  â”‚      404.vue
+â”‚  â”‚  â”‚      500.vue
+â”‚  â”‚  â”‚      Login.vue
+â”‚  â”‚  â”‚      
+â”‚  â”‚  â””â”€views
+â”‚  â”‚          
+â”‚  â”œâ”€router
+â”‚  â”‚      
+â”‚  â””â”€store
+â”‚              
+â”œâ”€static
+â”‚  â”‚  .gitkeep
+â”‚  â”‚  
+â”‚  â””â”€img
+â”‚          
+â””â”€test
+    â”œâ”€e2e
+    â”‚  â”‚  nightwatch.conf.js
+    â”‚  â”‚  runner.js
+    â”‚  â”‚  
+    â”‚  â”œâ”€custom-assertions
+    â”‚  â”‚      elementCount.js
+    â”‚  â”‚      
+    â”‚  â””â”€specs
+    â”‚          test.js
+    â”‚          
+    â””â”€unit
+        â”‚  .eslintrc
+        â”‚  index.js
+        â”‚  karma.conf.js
+        â”‚  
+        â””â”€specs
                 Hello.spec.js
                 

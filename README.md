@@ -14,6 +14,74 @@
  vue-router 
  axios 
 
+## 项目结构
+```javascript
+├─build                 //打包环境
+│      
+├─config                //开发部署配置
+│      
+├─node_modules
+│  
+├─src                   //项目源文件
+│  │  main.js           //入口文件       
+│  ├─api                //请求资源
+│  │      
+│  ├─assets             //组件静态资源
+│  │  └─styles          //样式
+│  │      ├─base        //基础样式
+│  │      ├─cover       //iview覆盖样式
+│  │      ├─layout      //布局样式
+│  │      └─variable    //样式变量
+│  │              
+│  ├─common             //公共
+│  │  ├─directive       
+│  │  └─utils           
+│  │              
+│  ├─components     
+│  │  │  
+│  │  ├─layout          //布局组件
+│  │  │      Theader.vue
+│  │  │      Nav.vue
+│  │  ├─pages           //基本组件
+│  │  │      404.vue
+│  │  │      500.vue
+│  │  │      Login.vue
+│  │  │      
+│  │  └─views           //业务组件
+│  │          
+│  ├─router             //路由管理
+│  │      
+│  └─store              //状态管理
+│              
+├─static                //业务静态资源
+│  └─img
+│          
+└─test
+    ├─e2e
+    │  │  nightwatch.conf.js
+    │  │  runner.js
+    │  │  
+    │  ├─custom-assertions
+    │  │      elementCount.js
+    │  │      
+    │  └─specs
+    │          test.js
+    │          
+    └─unit
+        │  .eslintrc
+        │  index.js
+        │  karma.conf.js
+        │  
+        └─specs
+                Hello.spec.js
+│  .babelrc
+│  .editorconfig
+│  .gitignore
+│  .postcssrc.js
+│  index.html           //项目首页
+│  package.json         //依赖配置
+│  prod.server.js       //打包后启动文件             
+```
 ## Build Setup
 
 ``` bash

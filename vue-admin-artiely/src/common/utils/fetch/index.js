@@ -55,7 +55,6 @@ export default function fetch(options) {
                 if (error.response) {
                     switch (error.response.status) {
                         case 401:
-                            //401 旌旗 灵医, 只用[授权] 旌旗的医生 才是 灵医
                             // 返回 401 清除token信息并跳转到登录页面
                             store.commit(types.LOGOUT);
                             router.replace({
