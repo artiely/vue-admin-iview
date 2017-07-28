@@ -25,6 +25,7 @@
             </Menu-item>
           </div>
         </Menu>
+  
       </nav-bar>
       <!-- 左侧导航 /-->
     </div>
@@ -44,6 +45,7 @@
           </Dropdown-menu>
         </Dropdown>
         <div class="messageBox">
+  
           <div class="iconBox">
             <Badge count="3">
               <Icon type="ios-bell">
@@ -51,9 +53,10 @@
             </Badge>
           </div>
           <div class="iconBox">
-            <Icon type="ios-email"></Icon>
+            <svg class="icon" aria-hidden="true" @click="changeLang">
+              <use :xlink:href="lang.icon"></use>
+            </svg>
           </div>
-  
         </div>
         <div class="searchBox">
           <Icon type="ios-search"></Icon>
@@ -71,9 +74,9 @@
               Home
             </Breadcrumb-item>
             <!-- <Breadcrumb-item href="/components/breadcrumb">
-                              <Icon type="social-buffer-outline"></Icon>
-                              Components
-                            </Breadcrumb-item> -->
+                                  <Icon type="social-buffer-outline"></Icon>
+                                  Components
+                                </Breadcrumb-item> -->
             <Breadcrumb-item>
               <Icon type="pound"></Icon>
               {{currentPageName}}
@@ -136,7 +139,7 @@ export default {
       formValidate: {
         check_password: '',
       },
-      menu: [],
+      menu: menu,//导航菜单
       ruleValidate: {
         check_password: [
           { validator: validatePass, trigger: 'blur' }
@@ -145,7 +148,6 @@ export default {
     }
   },
   created() {
-    this.menu = menu;
   },
   watch: {
     'value': {
@@ -159,17 +161,22 @@ export default {
     }
   },
   computed: {
-    sidebar() {
+    sidebar() {//导航是否展开
       return this.$store.state.app.sidebar;
     },
-    currentPageName() {
+    currentPageName() {//面包屑
       return this.$store.state.app.router.currentPageName;
+    },
+    lang(){//语言
+      return this.$store.state.app.lang;
     }
+
   },
   mounted() {
 
   },
   methods: {
+    // 查看个人信息密码验证
     checkUser(name) {
       this.modal_loading = true;
       this.$refs[name].validate((valid) => {
@@ -180,14 +187,23 @@ export default {
             this.modalUser = false
           } else {
             this.$Notice.warning({
-                    title: '提示',
-                    desc: '密码 : 123456'
-                });
+              title: '提示',
+              desc: '密码 : 123456'
+            });
             this.$Message.error('表单验证失败!');
           }
           this.modal_loading = false;
         }, 2000);
       })
+    },
+    /* 改变语言 */
+    changeLang() {
+      if (this.lang.icon == '#icon-yingguo') {
+        this.$store.dispatch('setLang',{icon:'#icon-zhongguo',type:'CN'})
+      } else {
+        this.$store.dispatch('setLang',{icon:'#icon-yingguo',type:'EN'})
+      }
+       window.location.reload()
     },
     /**
      * 选择菜单
@@ -205,5 +221,7 @@ export default {
   }
 }
 </script>
+
+
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

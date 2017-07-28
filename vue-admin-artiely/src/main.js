@@ -6,6 +6,7 @@ import router from './router'
 import VueI18n from 'vue-i18n';
 import iView from 'iview';
 import store from './store'
+import Cookies from 'js-cookie';
 import 'iview/dist/styles/iview.css'; // 使用 CSS
 import "./assets/styles/layout/layout.less"; //引入布局样式
 import "./assets/styles/cover/cover.less"; //覆盖样式
@@ -16,7 +17,16 @@ import zhLocale from 'iview/src/locale/lang/zh-CN';
 import enLocale from 'iview/src/locale/lang/en-US';
 Vue.use(VueI18n);
 Vue.use(iView);
-Vue.config.lang = 'en-US';
+
+let lang = Cookies.getJSON('lang')
+store.dispatch('setLang', lang)
+console.log("lang", lang)
+if (lang && lang.type == 'CN') {
+    Vue.config.lang = 'zh-CN';
+} else {
+    Vue.config.lang = 'en-US';
+}
+
 Vue.locale('zh-CN', zhLocale);
 Vue.locale('en-US', enLocale);
 // 开启debug模式

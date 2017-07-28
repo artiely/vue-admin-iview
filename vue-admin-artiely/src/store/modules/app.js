@@ -8,6 +8,10 @@ const app = {
         },
         router: {
             currentPageName: 'index'
+        },
+        lang: {
+            icon: '#icon-zhongguo',
+            type: 'CN'
         }
 
     },
@@ -28,8 +32,15 @@ const app = {
          */
         GET_CURRENT_PAGE_NAME: (state, payload) => {
             state.router.currentPageName = payload
-        }
+        },
+        /**
+         * 设置语言
+         */
+        SET_LANG: (state, payload) => {
+            state.lang = payload
+            Cookies.set('lang', payload);
 
+        }
     },
     actions: {
         ToggleSideBar: ({ commit }) => {
@@ -37,6 +48,9 @@ const app = {
         },
         getCurrentPageName: ({ commit }, payload) => {
             commit('GET_CURRENT_PAGE_NAME', payload)
+        },
+        setLang: ({ commit }, payload) => {
+            commit('SET_LANG', payload)
         }
     }
 };

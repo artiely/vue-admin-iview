@@ -15,6 +15,7 @@
  vuex 
  vue-router 
  axios 
+ i18n
 
 ## 项目结构
 ```javascript
@@ -38,7 +39,8 @@
 │  ├─common             //公共
 │  │  ├─directive       
 │  │  └─utils           
-│  │              
+│  │  
+│  ├─i18n               //国际化             
 │  ├─components     
 │  │  │  
 │  │  ├─layout          //布局组件

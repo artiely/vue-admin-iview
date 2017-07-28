@@ -10,9 +10,11 @@ import Chart from '@/components/views/Chart'
 import UserInfo from '@/components/views/UserInfo'
 import E404 from '@/components/pages/E404'
 import iView from 'iview';
+import Cookies from 'js-cookie';
 Vue.use(iView);
 
 Vue.use(Router)
+
 
 const routes = [{
         path: '/',
