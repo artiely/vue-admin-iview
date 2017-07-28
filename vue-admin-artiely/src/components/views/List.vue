@@ -1,7 +1,7 @@
 <template>
   <div class="list">
-    <!-- 搜索 -->
-    <Row v-if="state.searchState.show">
+    <!-- 搜索 v-show="state.searchState.show"-->
+    <Row  class="search-filter" :class="{'active':state.searchState.show}">
       <Col>
       <Card>
         <Form :label-width="80" inline>
@@ -186,3 +186,16 @@ export default {
   }
 }
 </script>
+<style lang="less" scoped>
+.search-filter{
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all .28s ease-out;
+  &.active{
+    height: 200px;
+    opacity: 1
+  }
+}
+</style>
+
