@@ -23,7 +23,7 @@
 </template>
 <style scoped>
 .e404{
-  background-color: #2F3242;
+  background-color: #404040;
   width: 100%;
   height: 100%
 }
@@ -61,10 +61,10 @@ svg {
 }
 
 .buttons-con .action-link-wrap a {
-  background: #68c950;
+  background: #fff;
   padding: 8px 25px;
   border-radius: 2px;
-  color: #FFF;
+  color: #404040;
   font-weight: bold;
   font-size: 14px;
   transition: all 0.3s linear;
@@ -74,8 +74,8 @@ svg {
 }
 
 .buttons-con .action-link-wrap a:hover {
-  background: #5A5C6C;
-  color: #fff;
+  background: #ddd;
+  color: #404040;
 }
 
 #Polygon-1,

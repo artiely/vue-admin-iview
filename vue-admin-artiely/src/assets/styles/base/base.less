@@ -1,5 +1,20 @@
 //全局变量
 @import '../variable/variable.less';
+
+// 基础布局类
+.clearfix::after{
+  content: '';
+  clear:both;
+  display: block;
+  height: 0;
+  overflow: hidden
+}
+.pull-right{
+  float: right
+}
+.pull-left{
+  float: left
+}
 .a-box{
   background: #fff;
   border-radius: 4px;

@@ -18,6 +18,7 @@ import enLocale from 'iview/src/locale/lang/en-US';
 Vue.use(VueI18n);
 Vue.use(iView);
 
+
 let lang = Cookies.getJSON('lang')
 store.dispatch('setLang', lang)
 console.log("lang", lang)

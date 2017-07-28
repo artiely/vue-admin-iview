@@ -24,12 +24,20 @@ const routes = [{
         children: [{
                 path: '/index',
                 name: 'index',
-                component: Index
+                component: Index,
+                meta: {
+                    requiresAuth: true, //是否需要登录
+                    search: false, //是否可搜索
+                }
             },
             {
                 path: '/list',
                 name: 'list',
-                component: List
+                component: List,
+                meta: {
+                    requiresAuth: true, //是否需要登录
+                    search: true, //是否可搜索
+                }
             },
             {
                 path: '/chart',
@@ -60,12 +68,11 @@ const router = new Router({
     routes
 });
 router.beforeEach((to, from, next) => {
-    // iView.LoadingBar.start();
     if (to.meta.requiresAuth) {
         if (true) {
+            store.dispatch('getCurrentPageName', to.name)
             next(vm => {
-                console.log("toname", to.name)
-                vm.$store.dispatch('getCurrentPageName', to.name)
+                //..
             })
         } else {
             next({
@@ -79,8 +86,6 @@ router.beforeEach((to, from, next) => {
     }
 });
 
-router.afterEach((to, from, next) => {
-    // iView.LoadingBar.finish();
-});
+router.afterEach((to, from, next) => {});
 
 export default router;

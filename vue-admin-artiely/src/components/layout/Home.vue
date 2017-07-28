@@ -1,5 +1,5 @@
 <template>
-  <div class="app-wrapper" :class="{hideSidebar:!sidebar.opened}">
+  <div class="app-wrapper" :class="{hideSidebar:!state.sidebar.opened}">
     <!-- 左侧 -->
     <div class="side-wrapper">
       <!-- logo -->
@@ -45,7 +45,9 @@
           </Dropdown-menu>
         </Dropdown>
         <div class="messageBox">
-  
+          <div class="iconBox" @click="searchFilter" :class="{'active':state.searchState.show}">
+            <Icon type="ios-search"></Icon>
+          </div>
           <div class="iconBox">
             <Badge count="3">
               <Icon type="ios-bell">
@@ -54,13 +56,9 @@
           </div>
           <div class="iconBox">
             <svg class="icon" aria-hidden="true" @click="changeLang">
-              <use :xlink:href="lang.icon"></use>
+              <use :xlink:href="state.lang.icon"></use>
             </svg>
           </div>
-        </div>
-        <div class="searchBox">
-          <Icon type="ios-search"></Icon>
-          <input type="text" class="search" ref="search" v-model="value">
         </div>
       </t-header>
       <!-- 头部 /-->
@@ -74,12 +72,12 @@
               Home
             </Breadcrumb-item>
             <!-- <Breadcrumb-item href="/components/breadcrumb">
-                                  <Icon type="social-buffer-outline"></Icon>
-                                  Components
-                                </Breadcrumb-item> -->
+                                    <Icon type="social-buffer-outline"></Icon>
+                                    Components
+                                  </Breadcrumb-item> -->
             <Breadcrumb-item>
               <Icon type="pound"></Icon>
-              {{currentPageName}}
+              {{state.router.currentPageName}}
             </Breadcrumb-item>
           </Breadcrumb>
           <!-- 面包屑 /-->
@@ -121,7 +119,7 @@ import menu from '@/api/menu'
 
 export default {
   name: 'full',
-  components: { THeader, NavBar, Container },
+  components: { THeader, NavBar, Container},
   data() {
     const validatePass = (rule, value, callback) => {
       if (value === '') {
@@ -133,7 +131,6 @@ export default {
       }
     };
     return {
-      value: '',
       modalUser: false,
       modal_loading: false,
       formValidate: {
@@ -150,27 +147,12 @@ export default {
   created() {
   },
   watch: {
-    'value': {
-      handler(val) {
-        if (val.length > 0) {
-          this.$refs.search.style.width = '160px'
-        } else {
-          this.$refs.search.style.width = '50px'
-        }
-      }
-    }
+
   },
   computed: {
-    sidebar() {//导航是否展开
-      return this.$store.state.app.sidebar;
-    },
-    currentPageName() {//面包屑
-      return this.$store.state.app.router.currentPageName;
-    },
-    lang(){//语言
-      return this.$store.state.app.lang;
+    state(){
+      return this.$store.state.app
     }
-
   },
   mounted() {
 
@@ -198,12 +180,12 @@ export default {
     },
     /* 改变语言 */
     changeLang() {
-      if (this.lang.icon == '#icon-yingguo') {
-        this.$store.dispatch('setLang',{icon:'#icon-zhongguo',type:'CN'})
+      if (this.state.lang.icon == '#icon-yingguo') {
+        this.$store.dispatch('setLang', { icon: '#icon-zhongguo', type: 'CN' })
       } else {
-        this.$store.dispatch('setLang',{icon:'#icon-yingguo',type:'EN'})
+        this.$store.dispatch('setLang', { icon: '#icon-yingguo', type: 'EN' })
       }
-       window.location.reload()
+      window.location.reload()
     },
     /**
      * 选择菜单
@@ -217,6 +199,12 @@ export default {
     logout() {
       this.$router.push('/login');
       this.$Message.success('退出成功');
+    },
+    /** 
+     * 搜索过滤
+      */
+    searchFilter() {
+      this.$store.dispatch('searchFilter', { params: this.$route })
     }
   }
 }

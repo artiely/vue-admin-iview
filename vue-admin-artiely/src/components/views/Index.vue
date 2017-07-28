@@ -62,10 +62,10 @@
         </a>
         <Steps :current="2" direction="vertical" size="small">
           <Step title="已完成" content="">
-             <div style="font-size: 12px; color: gray">这里是该步骤的描述信息1</div>
-             <div style="font-size: 12px; color: gray">这里是该步骤的描述信息1</div>
-             <div style="font-size: 12px; color: gray">这里是该步骤的描述信息1</div>
-             <div style="font-size: 12px; color: gray">这里是该步骤的描述信息1</div>
+            <div style="font-size: 12px; color: gray">这里是该步骤的描述信息1</div>
+            <div style="font-size: 12px; color: gray">这里是该步骤的描述信息1</div>
+            <div style="font-size: 12px; color: gray">这里是该步骤的描述信息1</div>
+            <div style="font-size: 12px; color: gray">这里是该步骤的描述信息1</div>
           </Step>
           <Step title="已完成" content="这里是该步骤的描述信息1"></Step>
           <Step title="已完成" content="这里是该步骤的描述信息2"></Step>
@@ -136,11 +136,11 @@ export default {
      * 刷新页面请求
      * */
     refresh() {
-    
+
     },
   },
   created() {
-    
+
   }
 }
 </script>

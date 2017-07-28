@@ -67,30 +67,6 @@
       cursor: pointer;
     }
   }
-  .searchBox {
-    float: right;
-    margin-top: 10px;
-    padding: 0 10px;
-    i {
-      position: relative;
-      left: 30px;
-      top: 3px;
-      font-size: 20px;
-    }
-    .search {
-      text-indent: 30px;
-      height: 30px;
-      width: 50px;
-      border:1px solid @header-text;
-      background: rgba(255, 255, 255, .3);
-      text-align: left;
-      outline: none;
-      border-radius: 15px;
-      transition: all .28s ease-out;
-      color: @header-text;
-
-    }
-  }
   .messageBox {
     height: 50px;
     float: right;
@@ -102,6 +78,9 @@
       text-align: center;
       cursor: pointer;
       display: inline-block;
+      &.active{
+        background: #eee
+      }
     }
   }
   .expand-screen {

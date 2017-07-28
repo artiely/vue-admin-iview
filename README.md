@@ -1,21 +1,29 @@
 # vue-admin-artiely
 
 > vue-admin by iview
+
+> 目前还是只是一个管理系统模板 ，持续更新完善中，欢迎提意见，模板更新完成后 会用node写后端，如果对您有帮助，您可以点右上角 "Star" 支持一下 谢谢！ ^_^
 ## 项目截图
 
 ![](login.png)
 ![](index.png)
 ![](list.png)
+![](list2.png)
 ![](full.png)
 ![](chart.png)
 
 ## 技术栈
- vue 
- vue-cli
- vuex 
- vue-router 
- axios 
- i18n
+ > vue 
+
+ > vue-cli
+
+ > vuex 
+
+ > vue-router 
+
+ > axios 
+
+ > i18n
 
 ## 项目结构
 ```javascript

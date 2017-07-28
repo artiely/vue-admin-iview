@@ -1,5 +1,8 @@
 import Cookies from 'js-cookie';
-import router from '@/router'
+import router from '@/router';
+import iView from 'iview';
+import Vue from 'vue'
+Vue.use(iView);
 
 const app = {
     state: {
@@ -12,6 +15,10 @@ const app = {
         lang: {
             icon: '#icon-zhongguo',
             type: 'CN'
+        },
+        searchState: {
+            show: false,
+            params: ''
         }
 
     },
@@ -40,6 +47,17 @@ const app = {
             state.lang = payload
             Cookies.set('lang', payload);
 
+        },
+        /**
+         * 搜索过滤
+         */
+        SEARCH_FILTER: (state, payload) => {
+            if (!payload.params.meta.search) { //路由元信息设置是否有搜索模块
+                iView.Message.error('该页不提供搜索!');
+                return
+            } else {
+                Object.assign(state.searchState, { show: !state.searchState.show }, payload)
+            }
         }
     },
     actions: {
@@ -51,7 +69,10 @@ const app = {
         },
         setLang: ({ commit }, payload) => {
             commit('SET_LANG', payload)
-        }
+        },
+        searchFilter: ({ commit }, payload) => {
+            commit('SEARCH_FILTER', payload)
+        },
     }
 };
 
