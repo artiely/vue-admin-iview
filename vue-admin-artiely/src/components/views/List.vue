@@ -1,18 +1,22 @@
 <template>
   <div class="list">
     <!-- 搜索 v-show="state.searchState.show"-->
-    <Row  class="search-filter" :class="{'active':state.searchState.show}">
+    <Row class="search-filter" :class="{'active':state.searchState.show}">
       <Col>
       <Card>
         <Form :label-width="80" inline>
           <Form-item label="输入框">
             <Input v-model="formItem.input" placeholder="请输入" style="width:187px"></Input>
           </Form-item>
-          <Form-item label="选择器">
+          <Form-item label="选择平台">
             <Select v-model="formItem.select" placeholder="请选择" style="width:187px">
-              <Option value="beijing">北京市</Option>
-              <Option value="shanghai">上海市</Option>
-              <Option value="shenzhen">深圳市</Option>
+              <Option value="Android">Android</Option>
+              <Option value="iOS">iOS</Option>
+              <Option value="休息视频">休息视频</Option>
+              <Option value="福利">福利</Option>
+              <Option value="拓展资源">拓展资源</Option>
+              <Option value="前端">前端</Option>
+              <Option value="App">App</Option>
             </Select>
           </Form-item>
           <Form-item label="日期控件">
@@ -48,11 +52,12 @@
           </Form-item>
           <div class="clearfix" style="border-top:1px solid #eee;margin-top:-15px;padding-top:10px">
             <span class="pull-right">
- <Button type="primary" icon="ios-search" shape="circle">查询</Button>
-            <Button type="primary" icon="ios-close-empty" shape="circle">清楚条件</Button>
-            <Button type="primary" icon="ios-download-outline" shape="circle">导出结果</Button>
+              <Button type="primary" icon="ios-search" shape="circle">查询</Button>
+              <Button type="primary" icon="ios-close-empty" shape="circle">清楚条件</Button>
+              <Button type="primary" icon="ios-download-outline" shape="circle" @click="exportData(1)">导出原始数据</Button>
+              <Button type="primary" icon="ios-download-outline" shape="circle" @click="exportData(2)">导出排序和过滤后数据</Button>
             </span>
-           
+  
           </div>
         </Form>
       </Card>
@@ -65,19 +70,38 @@
         <div slot="title">
           <Icon type="ios-film-outline"></Icon>
           干货集中营
-           <Button type="dashed">
+          <Button type="dashed">
             <Icon type="pin" @click.native="fixedHeader=!fixedHeader"></Icon>
           </Button>
+          <Button type="error" v-if="selection.length>0" @click="deleteTip=true">
+           <Icon type="trash-a"></Icon>
+            批量删除
+          </Button>
         </div>
-       
+  
         <a href="#" slot="extra" @click.prevent="refresh">
           <Icon type="ios-loop-strong"></Icon>
         </a>
-        <Table :show-header="showHeader" :height="fixedHeader ? 300 : ''" :size="tableSize" :data="listData" :columns="columns1"></Table>
+        <Table :show-header="showHeader" :height="fixedHeader ? 300 : ''" :size="tableSize" :data="listData" :columns="columns1" ref="table" @on-select="onSelect" @on-selection-change="onSelectionChange"></Table>
         <Page :total="100" show-sizer show-elevator @on-change="pageChange" style="margin-top: 10px" @on-page-size-change="PageSizeChange"></Page>
       </Card>
       </Col>
     </Row>
+    <!--删除提示  -->
+    <Modal v-model="deleteTip" width="360">
+        <p slot="header" style="color:#f60;text-align:center">
+            <Icon type="information-circled"></Icon>
+            <span>删除确认</span>
+        </p>
+        <div style="text-align:center">
+            <p>此操作讲删除{{selection.length}}条数据,并不可恢复。</p>
+            <p>是否继续删除？</p>
+        </div>
+        <div slot="footer">
+            <Button type="error" size="large" long  @click="deleteBatch">删除</Button>
+        </div>
+    </Modal>
+    <!--删除提示 / -->
   </div>
 </template>
 <script>
@@ -102,6 +126,7 @@ export default {
         checkbox: [],
         switch: ''
       },
+      deleteTip:false,
       showHeader: true,//是否显示表头 @:show-header
       fixedHeader: false,//是否固定表头 @:height
       tableSize: 'small', //@:size
@@ -109,6 +134,7 @@ export default {
         page: 1,
         limit: 10
       },
+      selection:[],//表格选中项
       listData: [],//@:data
       columns1: [{ //@:columns
         type: 'selection', //开启checkbox
@@ -117,7 +143,8 @@ export default {
       },
       {
         title: '创建日期',
-        key: 'createdAt'
+        key: 'createdAt',
+         sortable: true
       },
       {
         title: '详情',
@@ -125,7 +152,8 @@ export default {
       },
       {
         title: '发布日期',
-        key: 'publishedAt'
+        key: 'publishedAt',
+         sortable: true
       },
       {
         title: '作者',
@@ -134,6 +162,44 @@ export default {
       {
         title: '平台',
         key: 'type'
+      }, {
+        title: '操作',
+        key: 'action',
+        width: 150,
+        align: 'center',
+        render: (h, params) => {
+          return h('div', [
+            h('Button', {
+              props: {
+                type: 'text',
+                size: 'small'
+              },
+              style: {
+                marginRight: '5px',
+                color: "#5cadff"
+              },
+              on: {
+                click: () => {
+                  this.show(params.index)
+                }
+              }
+            }, '查看'),
+            h('Button', {
+              props: {
+                type: 'text',
+                size: 'small'
+              },
+              style: {
+                color: '#ff3300'
+              },
+              on: {
+                click: () => {
+                  this.remove(params.index)
+                }
+              }
+            }, '删除')
+          ]);
+        }
       }
       ],
 
@@ -148,6 +214,13 @@ export default {
         this.getData(val)
       },
       deep: true
+    },
+    fixedHeader:{
+      handler(val){
+        if(val){
+         this.$Message.info('表头已固定')
+        }
+      }
     }
   },
   methods: {
@@ -179,7 +252,60 @@ export default {
     PageSizeChange(limit) {
       console.log(limit)
       this.params.limit = limit
+    },
+    /**
+     * 表格对应操作方法
+     * @show 查看
+     * @remove 删除
+     * @edit
+      */
+    show(index) {
+      this.$Modal.info({
+        title: '详情',
+        content: `姓名：${this.listData[index].who}<br>平台：${this.listData[index].type}<br>描述：${this.listData[index].desc}`
+      })
+    },
+    remove(index) {
+      this.listData.splice(index, 1);
+    },
+    edit() {
+
+    },
+    /**
+     * 批量删除
+      */
+    deleteBatch(){
+      this.deleteTip=false;
+      // ...
+    },
+    /**
+     * 数据导出
+     * @ type 1 原始数据 2过滤数据
+      */
+    exportData(type) {
+      if (type === 1) {
+        this.$refs.table.exportCsv({
+          filename: '原始数据'
+        });
+      } else if (type === 2) {
+        this.$refs.table.exportCsv({
+          filename: '排序和过滤后的数据',
+          original: false
+        });
+      }
+    },
+    /**
+     * 多选
+     * selection：已选项数据 row：刚选择的项数据
+      */
+    onSelect(selection, row) {
+      // console.log(selection,row)
+    },
+    onSelectionChange(selection) {
+      this.selection=selection
+      console.log(selection)
     }
+
   },
   created() {
     this.getData(this.params)
@@ -187,12 +313,12 @@ export default {
 }
 </script>
 <style lang="less" scoped>
-.search-filter{
+.search-filter {
   height: 0;
   opacity: 0;
   overflow: hidden;
   transition: all .28s ease-out;
-  &.active{
+  &.active {
     height: 200px;
     opacity: 1
   }

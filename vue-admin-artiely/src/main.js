@@ -21,7 +21,6 @@ Vue.use(iView);
 
 let lang = Cookies.getJSON('lang')
 store.dispatch('setLang', lang)
-console.log("lang", lang)
 if (lang && lang.type == 'CN') {
     Vue.config.lang = 'zh-CN';
 } else {
