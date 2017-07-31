@@ -12,6 +12,7 @@
     <div class="message-box">
       <h1>404</h1>
       <p>页面找不到</p>
+      <p>众里寻他千百度 蓦然回首 那人却在灯火阑珊处</p>
       <div class="buttons-con">
         <div class="action-link-wrap">
           <a onclick="history.back(-1)" class="link-button link-back-button">返回</a>

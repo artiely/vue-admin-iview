@@ -5,7 +5,7 @@ import fetch from '@/common/utils/fetch'
 
 const orderList = params => {
     return fetch({
-        url: `/data/Android/${params.limit}/${params.page}`,
+        url: `/data/${params.category}/${params.limit}/${params.page}`,
         method: 'get',
         params: ''
     })

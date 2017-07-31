@@ -9,7 +9,7 @@
             <Input v-model="formItem.input" placeholder="请输入" style="width:187px"></Input>
           </Form-item>
           <Form-item label="选择平台">
-            <Select v-model="formItem.select" placeholder="请选择" style="width:187px">
+            <Select v-model="params.category" placeholder="请选择" style="width:187px">
               <Option value="Android">Android</Option>
               <Option value="iOS">iOS</Option>
               <Option value="休息视频">休息视频</Option>
@@ -70,8 +70,8 @@
         <div slot="title">
           <Icon type="ios-film-outline"></Icon>
           干货集中营
-          <Button type="dashed">
-            <Icon type="pin" @click.native="fixedHeader=!fixedHeader"></Icon>
+          <Button type="dashed"  @click.native="fixedHeader=!fixedHeader">
+            <Icon type="pin"></Icon>
           </Button>
           <Button type="error" v-if="selection.length>0" @click="deleteTip=true">
            <Icon type="trash-a"></Icon>
@@ -132,7 +132,8 @@ export default {
       tableSize: 'small', //@:size
       params: {
         page: 1,
-        limit: 10
+        limit: 10,
+        category:'Android'
       },
       selection:[],//表格选中项
       listData: [],//@:data
