@@ -73,10 +73,14 @@
           <Button type="dashed"  @click.native="fixedHeader=!fixedHeader">
             <Icon type="pin"></Icon>
           </Button>
+          <Button type="success" >
+           <Icon type="trash-a"></Icon>
+            新增
+          </Button>
           <Button type="error" v-if="selection.length>0" @click="deleteTip=true">
            <Icon type="trash-a"></Icon>
             批量删除
-          </Button>
+           </Button>
         </div>
   
         <a href="#" slot="extra" @click.prevent="refresh">
@@ -145,6 +149,7 @@ export default {
       {
         title: '创建日期',
         key: 'createdAt',
+        width: 200,
          sortable: true
       },
       {
@@ -154,22 +159,39 @@ export default {
       {
         title: '发布日期',
         key: 'publishedAt',
+        width: 200,
          sortable: true
       },
       {
         title: '作者',
+        width: 100,
         key: 'who'
       },
       {
         title: '平台',
+        width: 100,
         key: 'type'
       }, {
         title: '操作',
         key: 'action',
-        width: 150,
+        width: 170,
         align: 'center',
         render: (h, params) => {
           return h('div', [
+              h('Button', {
+              props: {
+                type: 'text',
+                size: 'small'
+              },
+              style: {
+                color: '#5cadff'
+              },
+              on: {
+                click: () => {
+                  this.edit(params.index)
+                }
+              }
+            }, '编辑'),
             h('Button', {
               props: {
                 type: 'text',

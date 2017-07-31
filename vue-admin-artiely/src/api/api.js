@@ -1,7 +1,7 @@
 /**
  * Created by Administrator on 2017/7/20.
  */
-import fetch from '@/common/utils/fetch'
+import fetch from './fetch'
 
 const orderList = params => {
     return fetch({
