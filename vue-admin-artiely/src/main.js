@@ -20,11 +20,13 @@ Vue.use(iView);
 
 
 let lang = Cookies.getJSON('lang')
-store.dispatch('setLang', lang)
+    // store.dispatch('setLang', lang)
 if (lang && lang.type == 'CN') {
     Vue.config.lang = 'zh-CN';
-} else {
+} else if (lang && lang.type == 'EN') {
     Vue.config.lang = 'en-US';
+} else {
+    Vue.config.lang = 'zh-CN';
 }
 
 Vue.locale('zh-CN', zhLocale);
