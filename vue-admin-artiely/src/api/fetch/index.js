@@ -5,7 +5,7 @@ import router from '@/router'
 import { Message } from 'iview'
 import store from '@/store'
 //import {SET_USER_INFO} from 'store/actions/type'
-import { server_base_url } from '@/api/config'
+import '.././config'
 import Vue from 'vue'
 import iView from 'iview';
 Vue.use(iView);
@@ -25,7 +25,7 @@ export default function fetch(options) {
         //创建一个axios实例
         const instance = axios.create({
                 //设置默认根地址
-                baseURL: server_base_url,
+                baseURL: SERVER_BASE_URL,
                 //设置请求超时设置
                 timeout: 5000,
                 //设置请求时的header
@@ -78,6 +78,7 @@ export default function fetch(options) {
                  setUserInfo(null)
                  router.replace({name: "login"})
                  }*/
+
                 resolve(res.data)
                 return false
                     // Message.warning(msg)

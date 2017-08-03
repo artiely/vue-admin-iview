@@ -18,15 +18,17 @@ import enLocale from 'iview/src/locale/lang/en-US';
 Vue.use(VueI18n);
 Vue.use(iView);
 
-
 let lang = Cookies.getJSON('lang')
     // store.dispatch('setLang', lang)
 if (lang && lang.type == 'CN') {
     Vue.config.lang = 'zh-CN';
+    store.dispatch('setLang', { icon: '#icon-zhongguo', type: 'CN' })
 } else if (lang && lang.type == 'EN') {
+    store.dispatch('setLang', { icon: '#icon-yingguo', type: 'EN' })
     Vue.config.lang = 'en-US';
 } else {
     Vue.config.lang = 'zh-CN';
+    store.dispatch('setLang', { icon: '#icon-zhongguo', type: 'CN' })
 }
 
 Vue.locale('zh-CN', zhLocale);

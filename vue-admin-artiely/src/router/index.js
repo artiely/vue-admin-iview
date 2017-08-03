@@ -8,6 +8,7 @@ import Login from '@/components/pages/Login'
 import List from '@/components/views/List'
 import Chart from '@/components/views/Chart'
 import UserInfo from '@/components/views/UserInfo'
+import UserList from '@/components/views/UserList'
 import E404 from '@/components/pages/E404'
 import iView from 'iview';
 import Cookies from 'js-cookie';
@@ -48,6 +49,10 @@ const routes = [{
                 path: '/userInfo',
                 name: 'userInfo',
                 component: UserInfo
+            },{
+                path: '/userList',
+                name: 'userList',
+                component: UserList
             }
         ]
     },

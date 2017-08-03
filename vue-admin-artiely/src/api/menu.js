@@ -22,7 +22,13 @@ const menu = [{
         url: '/error404',
         icon: 'checkmark',
         _id: '1_2'
-    }]
+    }, {
+        name: '用户权限',
+        url: '/userList',
+        icon: 'checkmark',
+        _id: '1_3'
+    }
+  ]
 }]
 
 export default menu

@@ -1,7 +1,7 @@
 // see http://vuejs-templates.github.io/webpack for documentation.
 var path = require('path')
 
-module.exports = {
+var config = {
     build: {
         env: require('./prod.env'),
         port: 9000,
@@ -43,3 +43,17 @@ module.exports = {
         cssSourceMap: false
     }
 }
+
+var keysArr = [
+   '/*/person/*'
+]
+const targetPath = 'http://172.16.7.248'; //服务器的地址 可以使www.fwone.com
+for (let i = 0; i < keysArr.length; i++) {
+    config.dev.proxyTable[keysArr[i]] = {
+        target: targetPath,
+        secure: false,
+        changeOrigin: true,
+    }
+}
+console.info(Object.keys(config.dev.proxyTable))
+module.exports = config

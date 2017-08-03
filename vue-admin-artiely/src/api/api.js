@@ -19,11 +19,20 @@ const articleList = params => {
     })
 };
 
+const userList =params =>{
+  return fetch({
+    url: '/person/getPersonListByCompany',
+    method:'get',
+    params:params
+  })
+}
+
 
 
 const apiObj = {
     orderList,
-    articleList
+    articleList,
+    userList
 }
 
 export default apiObj
