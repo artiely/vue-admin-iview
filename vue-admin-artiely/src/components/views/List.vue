@@ -73,7 +73,7 @@
         <Button type="dashed" @click.native="fixedHeader=!fixedHeader">
             <Icon type="pin"></Icon>
           </Button>
-        <Button type="success">
+        <Button type="success" @click.native="edit(-1)">
            <Icon type="trash-a"></Icon>
             新增
           </Button>
@@ -110,21 +110,22 @@
   <Modal v-model="editModal" v-if='DateReady'>
     <p slot="header" style="text-align:center">
       <Icon type="information-circled"></Icon>
-      <span>编辑</span>
+      <span v-if="currIndex==-1">新增</span>
+      <span v-if="currIndex!=-1">编辑</span>
     </p>
     <div style="text-align:center">
       <Form :model="formItem" :label-width="80">
         <Form-item label="作者">
-          <Input v-model="listData[clickedIndex].who" placeholder="请输入"></Input>
+          <Input v-model="currDate.who" placeholder="请输入"></Input>
         </Form-item>
         <Form-item label="创建日期">
-          <Date-picker type="date" placeholder="选择日期" style="width:100%" v-model="listData[clickedIndex].createdAt"></Date-picker>
+          <Date-picker type="date" placeholder="选择日期" style="width:100%" v-model="currDate.createdAt" :editable='false'></Date-picker>
         </Form-item>
         <Form-item label="发布日期">
-          <Date-picker type="date" placeholder="选择日期" style="width:100%" v-model="listData[clickedIndex].publishedAt"></Date-picker>
+          <Date-picker type="date" placeholder="选择日期" style="width:100%" v-model="currDate.publishedAt" :editable='false'></Date-picker>
         </Form-item>
         <Form-item label="选择平台">
-          <Select v-model="listData[clickedIndex].type" placeholder="请选择">
+          <Select v-model="currDate.type" placeholder="请选择">
               <Option value="Android">Android</Option>
               <Option value="iOS">iOS</Option>
               <Option value="休息视频">休息视频</Option>
@@ -136,12 +137,12 @@
         </Form-item>
 
         <Form-item label="描述">
-          <Input v-model="listData[clickedIndex].desc" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="请输入..."></Input>
+          <Input v-model="currDate.desc" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="请输入..."></Input>
         </Form-item>
       </Form>
     </div>
     <div slot="footer">
-      <Button type="success" size="large" long @click.native="saveBatch" :loading="loading">保存</Button>
+      <Button type="success" size="large" long @click.native="saveBatch" :loading="loading" :disabled="saveDisabled">保存</Button>
     </div>
   </Modal>
   <!-- 编辑/ -->
@@ -155,11 +156,6 @@ import {
 export default {
   name: 'list',
   components: {},
-  computed: {
-    state() {
-      return this.$store.state.app
-    }
-  },
   data() {
     return {
       formItem: {
@@ -176,9 +172,11 @@ export default {
       showHeader: true, //是否显示表头 @:show-header
       fixedHeader: false, //是否固定表头 @:height
       tableSize: 'small', //@:size
-      clickedIndex: 0,
       DateReady: false, // 判断异步数据加载完成，避免报错
       loading: false, //save
+      currDate: {}, //当前编辑和新增的行数据
+      currIndex: 0, //当前编辑和新增的行号
+      saveDisabled: false,
       params: {
         page: 1,
         limit: 10,
@@ -287,7 +285,26 @@ export default {
           this.$Message.info('表头已固定')
         }
       }
+    },
+    currDate: {
+      handler(val) {
+        for (let i = 0; i < Object.values(val).length; i++) {
+          if (Object.values(val)[i] == '') {
+            this.saveDisabled = true;
+            return
+          } else {
+            this.saveDisabled = false;
+          }
+        }
+      },
+      deep: true
     }
+  },
+  computed: {
+    state() {
+      return this.$store.state.app
+    },
+
   },
   methods: {
     /**
@@ -342,7 +359,19 @@ export default {
     },
     edit(index) {
       this.editModal = true
-      this.clickedIndex = index
+      this.currIndex = index
+      if (index == -1) { //新增
+        this.currDate = {
+          createdAt: '',
+          desc: "",
+          publishedAt: "",
+          type: "",
+          used: true,
+          who: ""
+        }
+      } else { //编辑
+        this.currDate = this.listData[index]
+      }
 
     },
     /**
@@ -406,3 +435,14 @@ export default {
     }
 }
 </style>
+>
+le>
+>
+le>
+>
+>
+>
+le>
+>
+
+>

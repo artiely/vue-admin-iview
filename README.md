@@ -7,8 +7,8 @@
 
 ![](login.png)
 ![](index.png)
-![](list.png)
-![](list2.png)
+![](add.png)
+![](edit.png)
 ![](full.png)
 ![](chart.png)
 
