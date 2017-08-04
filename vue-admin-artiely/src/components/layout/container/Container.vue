@@ -2,7 +2,7 @@
   <div class="container" >
     <div id="sticker">
       <div id="stickerCon">
-        <slot></slot>
+        <slot ></slot>
       </div>
     </div>
     <div id="footer">@copyright by Artiely</div>
