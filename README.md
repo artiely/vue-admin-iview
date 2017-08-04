@@ -9,7 +9,6 @@
 ![](index.png)
 ![](add.png)
 ![](edit.png)
-![](full.png)
 ![](chart.png)
 
 ## 技术栈
