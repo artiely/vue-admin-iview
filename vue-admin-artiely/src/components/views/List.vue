@@ -168,6 +168,7 @@ export default {
         switch: ''
       },
       editModal: false,
+      detailModal: false,
       deleteTip: false,
       showHeader: true, //是否显示表头 @:show-header
       fixedHeader: false, //是否固定表头 @:height
@@ -349,6 +350,9 @@ export default {
      * @edit
      */
     show(index) {
+      this.currIndex = index;
+      this.currDate = this.listData[index]
+      this.detailModal = true
       this.$Modal.info({
         title: '详情',
         content: `姓名：${this.listData[index].who}<br>平台：${this.listData[index].type}<br>描述：${this.listData[index].desc}`
@@ -367,7 +371,8 @@ export default {
           publishedAt: "",
           type: "",
           used: true,
-          who: ""
+          who: "",
+          url: 'c.fwone.com'
         }
       } else { //编辑
         this.currDate = this.listData[index]
