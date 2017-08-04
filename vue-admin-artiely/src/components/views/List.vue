@@ -106,6 +106,45 @@
     </div>
   </Modal>
   <!--删除提示 / -->
+  <!-- 编辑 -->
+  <Modal v-model="editModal" v-if='DateReady'>
+    <p slot="header" style="text-align:center">
+      <Icon type="information-circled"></Icon>
+      <span>编辑</span>
+    </p>
+    <div style="text-align:center">
+      <Form :model="formItem" :label-width="80">
+        <Form-item label="作者">
+          <Input v-model="listData[clickedIndex].who" placeholder="请输入"></Input>
+        </Form-item>
+        <Form-item label="创建日期">
+          <Date-picker type="date" placeholder="选择日期" style="width:100%" v-model="listData[clickedIndex].createdAt"></Date-picker>
+        </Form-item>
+        <Form-item label="发布日期">
+          <Date-picker type="date" placeholder="选择日期" style="width:100%" v-model="listData[clickedIndex].publishedAt"></Date-picker>
+        </Form-item>
+        <Form-item label="选择平台">
+          <Select v-model="listData[clickedIndex].type" placeholder="请选择">
+              <Option value="Android">Android</Option>
+              <Option value="iOS">iOS</Option>
+              <Option value="休息视频">休息视频</Option>
+              <Option value="福利">福利</Option>
+              <Option value="拓展资源">拓展资源</Option>
+              <Option value="前端">前端</Option>
+              <Option value="App">App</Option>
+            </Select>
+        </Form-item>
+
+        <Form-item label="描述">
+          <Input v-model="listData[clickedIndex].desc" type="textarea" :autosize="{minRows: 2,maxRows: 5}" placeholder="请输入..."></Input>
+        </Form-item>
+      </Form>
+    </div>
+    <div slot="footer">
+      <Button type="success" size="large" long @click.native="saveBatch" :loading="loading">保存</Button>
+    </div>
+  </Modal>
+  <!-- 编辑/ -->
 </div>
 </template>
 <script>
@@ -132,10 +171,14 @@ export default {
         checkbox: [],
         switch: ''
       },
+      editModal: false,
       deleteTip: false,
       showHeader: true, //是否显示表头 @:show-header
       fixedHeader: false, //是否固定表头 @:height
       tableSize: 'small', //@:size
+      clickedIndex: 0,
+      DateReady: false, // 判断异步数据加载完成，避免报错
+      loading: false, //save
       params: {
         page: 1,
         limit: 10,
@@ -151,33 +194,30 @@ export default {
         {
           title: '创建日期',
           key: 'createdAt',
-          width: 200,
           sortable: true
       },
         {
           title: '详情',
           key: 'desc',
-          width: 120
+          className: 'min-width'
       },
         {
           title: '发布日期',
           key: 'publishedAt',
-          width: 200,
           sortable: true
       },
         {
           title: '作者',
-          width: 100,
           key: 'who'
       },
         {
           title: '平台',
-          width: 100,
           key: 'type'
       }, {
           title: '操作',
           key: 'action',
           width: 170,
+          fixed: 'right',
           align: 'center',
           render: (h, params) => {
             return h('div', [
@@ -262,8 +302,14 @@ export default {
     getData(params) {
       let _this = this
       console.log(this.$api)
-      this.$api.orderList(params).then(function (r) {
-        _this.listData = r.results
+      this.$api.orderList(params).then((res) => {
+        if (!res.error) {
+          this.listData = res.results
+          this.DateReady = true
+        } else {
+          this.$Message.error(res.msg)
+        }
+
       })
     },
     /**
@@ -294,7 +340,9 @@ export default {
     remove(index) {
       this.listData.splice(index, 1);
     },
-    edit() {
+    edit(index) {
+      this.editModal = true
+      this.clickedIndex = index
 
     },
     /**
@@ -303,6 +351,14 @@ export default {
     deleteBatch() {
       this.deleteTip = false;
       // ...
+    },
+    saveBatch() {
+      this.loading = true;
+      setTimeout(() => {
+        this.loading = false;
+        this.$Message.info('保存成功')
+        this.editModal = false
+      }, 3000)
     },
     /**
      * 数据导出

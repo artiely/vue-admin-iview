@@ -1,49 +1,64 @@
 //全局变量
-@import '../variable/variable.less';
+@import '../variable/variable.less'; // 基础布局类
 
-// 基础布局类
-.clearfix::after{
+.clearfix::after {
   content: '';
-  clear:both;
+  clear: both;
   display: block;
   height: 0;
-  overflow: hidden
+  overflow: hidden;
 }
-.pull-right{
-  float: right
+
+.pull-right {
+  float: right;
 }
-.pull-left{
-  float: left
+
+.pull-left {
+  float: left;
 }
-.a-box{
+
+.a-box {
   background: #fff;
   border-radius: 4px;
   font-size: 12px;
   position: relative;
   overflow: hidden;
-  transition: all .3s;
-  .a-box-body{
+  transition: all 0.3s;
+
+  .a-box-body {
     padding: 24px;
   }
 }
- .login{
-    height:100%;
-    background-image: url('../../img/fullstack.jpg')  ;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    .bg{
-      margin: 0 auto;
-      height:100%;
-    }
+
+.login {
+  height: 100%;
+  background-image: url('../../img/fullstack.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  .bg {
+    margin: 0 auto;
+    height: 100%;
   }
-  .subText{
-      color: @text-color;
-      font-size: 12px
+}
+
+.subText {
+  color: @text-color;
+  font-size: 12px;
+}
+
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+
+.ivu-table th, .ivu-table td{
+  &.min-width {
+    width: 200px!important;
+    min-width: 200px
   }
-    .icon {
-       width: 1em; height: 1em;
-       vertical-align: -0.15em;
-       fill: currentColor;
-       overflow: hidden;
-    }
+}
