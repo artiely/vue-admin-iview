@@ -26,6 +26,8 @@
 
  > es6/7
 
+ > webpack2/3
+
  > less
 
  > ...
@@ -101,6 +103,13 @@
 ```
 
 > 代码默认遵循eslint(default)的规范 不习惯的可以在webpack.base.conf.js 关闭相应规则
+
+## 浏览器支持
+
+* IE 9+
+* Firefox（最新）
+* Chrome（最新）
+* Safari（最新）
 
 ## Build Setup
 
