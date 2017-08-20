@@ -6,19 +6,19 @@
 │  package.json
 │  README.md
 │  tree.txt
-│  
+│
 ├─build
-│      
+│
 ├─config
-│      
+│
 ├─node_modules
-│  
+│
 ├─src
 │  │  App.vue
 │  │  main.js
-│  │  
+│  │
 │  ├─api
-│  │      
+│  │
 │  ├─assets
 │  │  ├─iconfont
 │  │  ├─img
@@ -28,47 +28,47 @@
 │  │      ├─cover
 │  │      ├─layout
 │  │      └─variable
-│  │              
+│  │
 │  ├─common
 │  │  ├─directive
 │  │  └─utils
-│  │              
+│  │
 │  ├─components
-│  │  │  
+│  │  │
 │  │  ├─layout
-│  │  │          
+│  │  │
 │  │  ├─pages
 │  │  │      404.vue
 │  │  │      500.vue
 │  │  │      Login.vue
-│  │  │      
+│  │  │
 │  │  └─views
-│  │          
+│  │
 │  ├─router
-│  │      
+│  │
 │  └─store
-│              
+│
 ├─static
 │  │  .gitkeep
-│  │  
+│  │
 │  └─img
-│          
+│
 └─test
     ├─e2e
     │  │  nightwatch.conf.js
     │  │  runner.js
-    │  │  
+    │  │
     │  ├─custom-assertions
     │  │      elementCount.js
-    │  │      
+    │  │
     │  └─specs
     │          test.js
-    │          
+    │
     └─unit
         │  .eslintrc
-        │  index.js
+        │  fetch.js
         │  karma.conf.js
-        │  
+        │
         └─specs
                 Hello.spec.js
-                
+

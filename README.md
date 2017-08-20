@@ -24,50 +24,55 @@
 
  > i18n
 
+ > es6/7
+
+ > less
+
+ > ...
+
 ## 项目结构
-```javascript
-├─build                 //打包环境
+```bash
+├─build                 // 打包环境
 │      
-├─config                //开发部署配置
+├─config                // 开发部署配置
 │      
 ├─node_modules
 │  
-├─src                   //项目源文件
-│  │  main.js           //入口文件       
-│  ├─api                //请求资源
+├─src                   // 项目源文件
+│  │  main.js           // 入口文件
+│  ├─api                // 请求接口
 │  │      
-│  ├─assets             //组件静态资源
-│  │  └─styles          //样式
-│  │      ├─base        //基础样式
-│  │      ├─cover       //iview覆盖样式
-│  │      ├─layout      //布局样式
-│  │      └─variable    //样式变量
+│  ├─assets             // 组件静态资源
+│  │  └─styles          // 样式
+│  │      ├─base        // 基础样式
+│  │      ├─cover       // iview覆盖样式
+│  │      ├─layout      // 布局样式
+│  │      └─variable    // 样式变量
 │  │              
-│  ├─common             //公共
+│  ├─common             // 公共
 │  │  ├─directive       
 │  │  └─utils           
 │  │  
-│  ├─i18n               //国际化             
+│  ├─i18n               // 国际化
 │  ├─components     
 │  │  │  
-│  │  ├─layout          //布局组件
+│  │  ├─layout          // 布局组件
 │  │  │      Theader.vue
 │  │  │      Nav.vue
-│  │  ├─pages           //基本组件
-│  │  │      404.vue
-│  │  │      500.vue
+│  │  ├─pages           // 基本组件
+│  │  │      E404.vue
 │  │  │      Login.vue
 │  │  │      
-│  │  └─views           //业务组件
+│  │  └─views           // 业务组件
 │  │          
-│  ├─router             //路由管理
+│  ├─router             // 路由管理
 │  │      
-│  └─store              //状态管理
+│  └─store              // 状态管理
 │              
-├─static                //业务静态资源
+├─static                // 业务静态资源
 │  └─img
 │          
-└─test
+└─test                  // 测试
     ├─e2e
     │  │  nightwatch.conf.js
     │  │  runner.js
@@ -85,14 +90,18 @@
         │  
         └─specs
                 Hello.spec.js
-│  .babelrc
-│  .editorconfig
-│  .gitignore
-│  .postcssrc.js
-│  index.html           //项目首页
-│  package.json         //依赖配置
-│  prod.server.js       //打包后启动文件             
+│  .babelrc             // babel配置
+│  .editorconfig        // editor配置
+│  .gitignore           // git忽略配置
+│  .eslintrc.js         // eslint配置
+│  .postcssrc.js        // postcss配置
+│  index.html           // 项目首页
+│  package.json         // 依赖配置
+│  prod.server.js       // 打包后启动文件
 ```
+
+> 代码默认遵循eslint(default)的规范 不习惯的可以在webpack.base.conf.js 关闭相应规则
+
 ## Build Setup
 
 ``` bash

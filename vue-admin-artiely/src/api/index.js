@@ -1,5 +1,5 @@
 // 导入模块
-import  apiList from './api'
+import apiList from './api'
 
 const install = function (Vue) {
   if (install.installed) return

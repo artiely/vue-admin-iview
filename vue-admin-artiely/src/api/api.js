@@ -1,23 +1,20 @@
-/**
- * Created by Administrator on 2017/7/20.
- */
-import fetch from './fetch'
+import fetch from './fetch.js'
 
-// 登录
-export function login (data) {
-  return fetch({
-    url: '',
-    method: 'post',
-    data
-  })
-}
-// 登出
-export function logout () {
-  return fetch({
-    url: '',
-    method: 'post'
-  })
-}
+// // 登录
+// export function login (data) {
+//   return fetch({
+//     url: '',
+//     method: 'post',
+//     data
+//   })
+// }
+// // 登出
+// export function logout () {
+//   return fetch({
+//     url: '',
+//     method: 'post'
+//   })
+// }
 
 const orderList = params => {
   return fetch({

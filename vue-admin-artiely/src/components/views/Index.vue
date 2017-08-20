@@ -94,7 +94,6 @@
   </div>
 </template>
 <script>
-  import * as orderList from '@/api'
   export default {
     name: 'index',
     data () {

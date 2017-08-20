@@ -7,13 +7,12 @@
 <script>
   export default {
     name: 'navbar',
-    components:{},
+    components: {},
     data () {
-      return {
-      }
+      return {}
     },
     computed: {
-      sidebar() {
+      sidebar () {
       }
     }
   }

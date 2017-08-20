@@ -37,7 +37,7 @@
 <script>
   export default {
     name: 'login',
-    data() {
+    data () {
       return {
         loginModal: true,
         modal_loading: false,

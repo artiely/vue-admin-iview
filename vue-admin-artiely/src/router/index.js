@@ -1,17 +1,29 @@
 import Vue from 'vue'
 import store from '@/store'
 import Router from 'vue-router'
-import Hello from '@/components/Hello'
 import Home from '@/components/layout/Home'
 import Index from '@/components/views/Index'
 import Login from '@/components/pages/Login'
 import List from '@/components/views/List'
-import Chart from '@/components/views/Chart'
 import UserInfo from '@/components/views/UserInfo'
 import UserList from '@/components/views/UserList'
 import E404 from '@/components/pages/E404'
+import Chart from '@/components/views/Chart'
+// 异步加载示例
+// const Chart = () => ({
+//   // 需要加载的组件. 应当是一个 Promise
+//   component: import('@/components/views/Chart'),
+//   // loading 时应当渲染的组件
+//   loading: '',
+//   // 出错时渲染的组件
+//   error: E404,
+//   // 渲染 loading 组件前的等待时间。默认：200ms.
+//   delay: 200,
+//   // 最长等待时间。超出此时间则渲染 error 组件。默认：Infinity
+//   timeout: 3000
+// })
 import iView from 'iview'
-import Cookies from 'js-cookie'
+// import Cookies from 'js-cookie'
 Vue.use(iView)
 
 Vue.use(Router)
@@ -77,7 +89,8 @@ const router = new Router({
 
 router.beforeEach((to, from, next) => {
   if (to.meta.requiresAuth) {
-    if (true) {
+    let token = 1
+    if (token) {
       store.dispatch('getCurrentPageName', to.name)
       next()
     } else {

@@ -1,14 +1,9 @@
 // 导入模块
 import axios from 'axios'
-import { SERVER_BASE_URL } from '@/api/config'
-import router from '@/router'
-import { Message, Notice } from 'iview'
+import { SERVER_BASE_URL } from './config'
+// import router from '@/router'
+import { iView, Notice } from 'iview'
 // import store from '@/store'
-import '.././config'
-import Vue from 'vue'
-import iView from 'iview'
-
-Vue.use(iView)
 
 // 设置用户信息action
 /* const setUserInfo = function (user) {
@@ -43,18 +38,18 @@ export default function fetch (options) {
       },
       error => {
         iView.LoadingBar.error()
-        if (error.response) {
-          switch (error.response.status) {
-            case 401:
-              // 返回 401 清除token信息并跳转到登录页面
-              // store.commit(types.LOGOUT)
-              router.replace({
-                path: 'login',
-                query: {redirect: router.currentRoute.fullPath}
-              })
-          }
+        if (error) {
+          // switch (error.response.status) {
+          //   case 401:
+          //     // 返回 401 清除token信息并跳转到登录页面
+          //     // store.commit(types.LOGOUT)
+          //     router.replace({
+          //       path: 'login',
+          //       query: {redirect: router.currentRoute.fullPath}
+          //     })
+          // }
         }
-        return Promise.reject(error.response.data) // 返回接口返回的错误信息
+        return Promise.reject(error) // 返回接口返回的错误信息
       })
 
     // 请求处理

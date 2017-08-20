@@ -158,10 +158,6 @@
   </div>
 </template>
 <script>
-  import * as orderList from '@/api'
-  import {
-    mapState
-  } from 'vuex'
   export default {
     name: 'list',
     components: {},
@@ -173,8 +169,7 @@
           date: '',
           time: '',
           radio: '',
-          checkbox: [],
-          switch: ''
+          checkbox: []
         },
         editModal: false,
         detailModal: false,
@@ -355,7 +350,7 @@
        * @edit
        */
       show (index) {
-        this.currIndex = index;
+        this.currIndex = index
         this.currDate = this.listData[index]
         this.detailModal = true
         this.$Modal.info({
@@ -425,7 +420,6 @@
         this.selection = selection
         console.log(selection)
       }
-
     },
     created () {
       this.getData(this.params)
@@ -444,14 +438,4 @@
     }
   }
 </style>
->
-le>
->
-le>
->
->
->
-le>
->
 
->

@@ -148,7 +148,7 @@
               validator: validatePass,
               trigger: 'blur'
             }
-          ],
+          ]
         }
       }
     },
