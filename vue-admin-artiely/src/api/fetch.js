@@ -1,10 +1,12 @@
 // 导入模块
+import Vue from 'vue'
 import axios from 'axios'
 import { SERVER_BASE_URL } from './config'
 // import router from '@/router'
-import { iView, Notice } from 'iview'
+import { Notice } from 'iview'
 // import store from '@/store'
-
+import iView from 'iview'
+Vue.use(iView)
 // 设置用户信息action
 /* const setUserInfo = function (user) {
  //store.dispatch(SET_USER_INFO, user)
@@ -69,7 +71,7 @@ export default function fetch (options) {
       })
       .catch((error) => {
         // 请求失败时,根据业务判断状态
-        Notice.open({
+        Notice.error({
           title: '出错了！',
           desc: '错误原因 ' + JSON.stringify(error),
           duration: 0
