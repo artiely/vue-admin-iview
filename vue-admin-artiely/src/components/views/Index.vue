@@ -37,7 +37,7 @@
 
     <Row :gutter="16">
       <Col :md='{span:8}'>
-      <Card>
+      <Card style="height: 320px">
         <p slot="title">
           10个已经完成，2个待完成，1个正在进行中
         </p>
@@ -53,29 +53,12 @@
       </Card>
       </Col>
       <Col :md='{span:8}'>
-      <Card>
-        <p slot="title">
-          未读消息
-        </p>
-        <a href="#" slot="extra" @click.prevent="refresh">
-          <Icon type="ios-loop-strong"></Icon>
-        </a>
-        <Steps :current="2" direction="vertical" size="small">
-          <Step title="已完成" content="">
-            <div style="font-size: 12px; color: gray">这里是该步骤的描述信息1</div>
-            <div style="font-size: 12px; color: gray">这里是该步骤的描述信息1</div>
-            <div style="font-size: 12px; color: gray">这里是该步骤的描述信息1</div>
-            <div style="font-size: 12px; color: gray">这里是该步骤的描述信息1</div>
-          </Step>
-          <Step title="已完成" content="这里是该步骤的描述信息1"></Step>
-          <Step title="已完成" content="这里是该步骤的描述信息2"></Step>
-          <Step title="进行中" content="这里是该步骤的描述信息3"></Step>
-          <Step title="待进行" content="这里是该步骤的描述信息4"></Step>
-        </Steps>
+      <Card style="height: 320px">
+        <Table :columns="columns1" :data="data1" :show-header="false"></Table>
       </Card>
       </Col>
       <Col :md='{span:8}'>
-      <Card>
+      <Card style="height: 320px">
         <p slot="title">
           未读消息
         </p>
@@ -124,6 +107,44 @@
             icon: 'filing',
             name: '归档',
             count: '12'
+          }
+        ],
+        columns1: [
+          {
+            key: 'name'
+          },
+          {
+            key: 'age'
+          },
+          {
+            key: 'address'
+          }
+        ],
+        data1: [
+          {
+            name: '王小明',
+            age: 18,
+            address: '北京市朝阳区芍药居'
+          },
+          {
+            name: '张小刚',
+            age: 25,
+            address: '北京市海淀区西二旗'
+          },
+          {
+            name: '李小红',
+            age: 30,
+            address: '上海市浦东新区世纪大道'
+          },
+          {
+            name: '周小伟',
+            age: 26,
+            address: '深圳市南山区深南大道'
+          },
+          {
+            name: '赵小钱',
+            age: 27,
+            address: '武汉市武昌区区关山大道'
           }
         ]
 

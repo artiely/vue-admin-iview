@@ -1,7 +1,7 @@
 <template>
   <div class="app-wrapper" :class="{hideSidebar:!state.sidebar.opened,hoverSideBar:state.sidebar.minOpen}">
     <!-- 左侧 -->
-    <div class="side-wrapper" :class="{hover:!state.sidebar.minOpened}">
+    <div class="side-wrapper" :class="{hover:!state.sidebar.minOpened,light:theme=='light'}">
       <!-- logo -->
       <div style="height:50px;" class="logo-box">
 
@@ -9,7 +9,7 @@
       <!-- logo /-->
       <!-- 左侧导航 -->
       <nav-bar>
-        <Menu width="220" theme="dark" :accordion="true" @on-select="selectFn">
+        <Menu width="220" :theme="theme" :accordion="true" @on-select="selectFn">
           <div v-for="(item,index) in menu " :key="item._id">
             <Submenu :name="index" v-if="item.children">
               <template slot="title">
@@ -27,8 +27,14 @@
             </Menu-item>
           </div>
         </Menu>
-
       </nav-bar>
+      <div class="theme-switch" :class="{hidden:!state.sidebar.opened}">
+        Switch Theme
+        <i-switch size="large" @on-change="themeChange" v-model="themeBool">
+          <span slot="open">Dark</span>
+          <span slot="close">Light</span>
+        </i-switch>
+      </div>
       <!-- 左侧导航 /-->
     </div>
     <!-- 左侧 /-->
@@ -138,6 +144,8 @@
         }
       }
       return {
+        theme: 'dark', // 主题
+        themeBool: true,
         modalUser: false,
         modal_loading: false,
         formValidate: {
@@ -222,6 +230,13 @@
         this.$store.dispatch('searchFilter', {
           params: this.$route
         })
+      },
+      themeChange (state) {
+        if (state) {
+          this.theme = 'dark'
+        } else {
+          this.theme = 'light'
+        }
       }
     }
   }

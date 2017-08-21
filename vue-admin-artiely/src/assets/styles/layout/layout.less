@@ -18,6 +18,7 @@
     bottom: 0;
     background: #f8fafc;
   }
+
   // 大屏幕
   &.hideSidebar {
     .side-wrapper {
@@ -131,6 +132,12 @@
   bottom: 0;
   z-index: 99;
   overflow: hidden;
+  &.light{
+    background: #fff;
+    .theme-switch{
+      background: #f8f8f8;
+    }
+  }
   .navbar {
     transition: all .28s ease-out;
     overflow-x: hidden;
@@ -140,7 +147,15 @@
     left: 0;
     bottom: 0;
     right: -17px;
-
+  }
+  .theme-switch{
+    position: absolute;
+    bottom:0;
+    width: 100%;
+    height: 40px;
+    background: @side-bar-bg*0.01;
+    line-height:40px;
+    text-align: center;
   }
   .logo-box {
     font-size: 30px;
@@ -183,3 +198,4 @@
   position: relative;
   z-index: 9;
 }
+
