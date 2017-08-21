@@ -17,8 +17,7 @@
 ### 图表
 ![](chart.png)
 ### 响应式
-<img src='17.png' width='300'>
-<img src='74.png' width='300'>
+<img src='17.png' width='300'><img src='74.png' width='300'>
 
 
 ## 技术栈
