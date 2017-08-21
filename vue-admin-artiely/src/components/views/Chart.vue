@@ -4,11 +4,11 @@
       <Col>
       <Card>
         <div class="echarts">
-          <IEcharts :option="bar" @ready="onReady" @click="onClick"></IEcharts>
+          <IEcharts :option="bar" @ready="onReady" @click="onClick" :resizable="true"></IEcharts>
         </div>
         <Button @click="doRandom">Random</Button>
         <div class="echarts">
-          <IEcharts :option="dot" @ready="onReady" @click="onClick"></IEcharts>
+          <IEcharts :option="dot" @ready="onReady" @click="onClick" :resizable="true"></IEcharts>
         </div>
       </Card>
       </Col>
