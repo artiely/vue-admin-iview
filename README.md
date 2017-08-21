@@ -10,6 +10,9 @@
 ![](add.png)
 ![](edit.png)
 ![](chart.png)
+<img src='17.png' width='300'>
+<img src='74.png' width='300'>
+
 
 ## 技术栈
  > vue 
