@@ -7,7 +7,8 @@ Vue.use(iView)
 const app = {
   state: {
     sidebar: {
-      opened: !+Cookies.get('sidebarStatus')
+      opened: !+Cookies.get('sidebarStatus'),
+      minOpen: false // 小屏时菜单状态
     },
     router: {
       currentPageName: 'index'
@@ -20,19 +21,35 @@ const app = {
       show: false,
       params: ''
     }
-
   },
   mutations: {
     /**
      * 菜单的缩展
      */
     TOGGLE_SIDEBAR: state => {
-      if (state.sidebar.opened) {
-        Cookies.set('sidebarStatus', 1)
-      } else {
+      let winWidth = document.documentElement.clientWidth
+      if (winWidth <= 600) {
+        state.sidebar.minOpen = !state.sidebar.minOpen
+        state.sidebar.opened = false
         Cookies.set('sidebarStatus', 0)
+        return
+      } else {
+        if (state.sidebar.opened) {
+          Cookies.set('sidebarStatus', 1)
+        } else {
+          Cookies.set('sidebarStatus', 0)
+        }
+        state.sidebar.opened = !state.sidebar.opened
       }
-      state.sidebar.opened = !state.sidebar.opened
+    },
+    CLOSE_SLIDEBAR: state => {
+      Cookies.set('sidebarStatus', 0)
+      state.sidebar.opened = false
+      state.sidebar.minOpen = false
+    },
+    OPEN_SLIDEBAR: state => {
+      Cookies.set('sidebarStatus', 1)
+      state.sidebar.opened = true
     },
     /**
      * 面包屑

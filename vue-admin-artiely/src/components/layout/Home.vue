@@ -1,9 +1,11 @@
 <template>
-  <div class="app-wrapper" :class="{hideSidebar:!state.sidebar.opened}">
+  <div class="app-wrapper" :class="{hideSidebar:!state.sidebar.opened,hoverSideBar:state.sidebar.minOpen}">
     <!-- 左侧 -->
-    <div class="side-wrapper">
+    <div class="side-wrapper" :class="{hover:!state.sidebar.minOpened}">
       <!-- logo -->
-      <div style="height:50px;" class="logo-box"></div>
+      <div style="height:50px;" class="logo-box">
+
+      </div>
       <!-- logo /-->
       <!-- 左侧导航 -->
       <nav-bar>

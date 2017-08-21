@@ -16,8 +16,9 @@
     top: 0;
     left: 0;
     bottom: 0;
-    background: #eee;
+    background: #f8fafc;
   }
+  // 大屏幕
   &.hideSidebar {
     .side-wrapper {
       transform: translate(-150px, 0);
@@ -25,6 +26,24 @@
         transform: translate(150px, 0);
       }
       &:hover {
+        transform: translate(0px, 0);
+        .navbar {
+          transform: translate(0px, 0);
+        }
+      }
+    }
+    .main-wrapper {
+      margin-left: 40px;
+    }
+  }
+  // 小屏幕
+  &.hoverSideBar {
+    .side-wrapper {
+      transform: translate(-150px, 0);
+      .navbar {
+        transform: translate(150px, 0);
+      }
+      &.hover {
         transform: translate(0px, 0);
         .navbar {
           transform: translate(0px, 0);
@@ -46,7 +65,7 @@
   height: 50px;
   width: 100%;
   color: @header-text;
-  box-shadow: 1px 2px 10px rgba(0,0,0,.2);
+  box-shadow: 1px 2px 10px rgba(0, 0, 0, .2);
   z-index: 99;
   position: relative;
   .userBox {
@@ -67,7 +86,7 @@
       cursor: pointer;
     }
   }
-  .msg-group-box{
+  .msg-group-box {
     float: right;
   }
   .messageBox {
@@ -80,7 +99,7 @@
       text-align: center;
       cursor: pointer;
       display: inline-block;
-      &.active{
+      &.active {
         background: #eee
       }
     }

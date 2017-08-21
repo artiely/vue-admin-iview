@@ -88,6 +88,9 @@ const router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
+  if (document.documentElement.clientWidth <= 600) {
+    store.commit('CLOSE_SLIDEBAR')
+  }
   if (to.meta.requiresAuth) {
     let token = 1
     if (token) {
