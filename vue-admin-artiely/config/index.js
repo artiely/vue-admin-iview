@@ -30,13 +30,7 @@ var config = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     baseServerUrl: 'http://gank.io',
-    proxyTable: {
-      // '/*/orderinfo/*': {
-      //     target:targetPath,
-      //     secure: false,
-      //     changeOrigin: true,
-      //   },
-    },
+    proxyTable: {},
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README
     // (https://github.com/webpack/css-loader#sourcemaps)
@@ -49,12 +43,14 @@ var config = {
 var keysArr = [
   '/*/person/*'
 ]
-const targetPath = 'http://172.16.7.248' //服务器的地址 可以使www.fwone.com
+
+var isProduction = process.env.NODE_ENV === 'production'
+const targetPath = isProduction ? config.build.baseServerUrl : config.dev.baseServerUrls // 服务器的地址 可以使www.xx.com
 for (let i = 0; i < keysArr.length; i++) {
   config.dev.proxyTable[keysArr[i]] = {
     target: targetPath,
     secure: false,
-    changeOrigin: true,
+    changeOrigin: true
   }
 }
 console.info(Object.keys(config.dev.proxyTable))
