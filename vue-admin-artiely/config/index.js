@@ -40,18 +40,19 @@ var config = {
   }
 }
 
-var keysArr = [
-  '/*/person/*'
+// 需要代理的接口
+var proxyList = [
+  '/*/person/**/*'
 ]
 
-var isProduction = process.env.NODE_ENV === 'production'
-const targetPath = isProduction ? config.build.baseServerUrl : config.dev.baseServerUrls // 服务器的地址 可以使www.xx.com
-for (let i = 0; i < keysArr.length; i++) {
-  config.dev.proxyTable[keysArr[i]] = {
+const targetPath = config.dev.baseServerUrl // 服务器的地址 可以使www.xx.com
+
+for (let i = 0; i < proxyList.length; i++) {
+  config.dev.proxyTable[proxyList[i]] = {
     target: targetPath,
     secure: false,
     changeOrigin: true
   }
 }
-console.info(Object.keys(config.dev.proxyTable))
+// console.info(Object.keys(config.dev.proxyTable))
 module.exports = config

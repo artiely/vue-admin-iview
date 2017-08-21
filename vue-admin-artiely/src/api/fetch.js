@@ -3,9 +3,8 @@ import Vue from 'vue'
 import axios from 'axios'
 import { SERVER_BASE_URL } from './config'
 // import router from '@/router'
-import { Notice } from 'iview'
+import iView, {Notice } from 'iview'
 // import store from '@/store'
-import iView from 'iview'
 Vue.use(iView)
 // 设置用户信息action
 /* const setUserInfo = function (user) {
