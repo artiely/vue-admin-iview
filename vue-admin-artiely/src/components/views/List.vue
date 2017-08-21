@@ -340,7 +340,6 @@
        * @on-page-size-change 切换每页条数时的回调，返回切换后的每页条数
        * */
       PageSizeChange (limit) {
-        console.log(limit)
         this.params.limit = limit
       },
       /**
@@ -418,7 +417,6 @@
       },
       onSelectionChange (selection) {
         this.selection = selection
-        console.log(selection)
       }
     },
     created () {

@@ -24,7 +24,6 @@ export default function fetch (options) {
       config => {
         iView.LoadingBar.start()
         config.headers.Authorization = 'token'
-        console.log('config', config)
         return config
       },
       err => {

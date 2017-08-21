@@ -88,7 +88,6 @@
        * */
       getData (params) {
         let _this = this
-        console.log(this.$api)
         this.$api.orderList(params).then(function (r) {
           _this.listData = r.results
         })
@@ -103,7 +102,6 @@
        * @on-page-size-change 切换每页条数时的回调，返回切换后的每页条数
        * */
       PageSizeChange (limit) {
-        console.log(limit)
         this.params.limit = limit
       }
     },

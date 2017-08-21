@@ -126,10 +126,10 @@
         that.bar.series[0].data = data
       },
       onReady (instance) {
-        console.log(instance)
+//        console.log(instance)
       },
       onClick (event, instance, echarts) {
-        console.log(arguments)
+//        console.log(arguments)
       }
     },
     created () {
