@@ -22,7 +22,7 @@ export default function fetch (options) {
     instance.interceptors.request.use(
       config => {
         iView.LoadingBar.start()
-        config.headers.Authorization = 'token'
+        // config.headers.Authorization = 'token'
         return config
       },
       err => {
