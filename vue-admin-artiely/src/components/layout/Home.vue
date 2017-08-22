@@ -4,7 +4,8 @@
     <div class="side-wrapper" :class="{hover:!state.sidebar.minOpened,light:theme=='light'}">
       <!-- logo -->
       <div style="height:50px;" class="logo-box">
-
+        <img :src="require('@/assets/img/logo.png')" alt="" height="50" v-show="state.sidebar.opened">
+        <img src="https://file.iviewui.com/dist/76ecb6e76d2c438065f90cd7f8fa7371.png" alt="" height="40"  width="40" style="position: absolute;top: 5px;left: 0"  v-show="!state.sidebar.opened">
       </div>
       <!-- logo /-->
       <!-- 左侧导航 -->

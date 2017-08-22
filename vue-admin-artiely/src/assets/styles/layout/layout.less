@@ -26,10 +26,16 @@
       .navbar {
         transform: translate(150px, 0);
       }
+      .logo-box{
+        transform: translate(150px, 0);
+      }
       &:hover {
         transform: translate(0px, 0);
         .navbar {
           transform: translate(0px, 0);
+        }
+        .logo-box{
+          transform: translate(0, 0);
         }
       }
     }
@@ -44,10 +50,16 @@
       .navbar {
         transform: translate(150px, 0);
       }
+      .logo-box{
+        transform: translate(150px, 0);
+      }
       &.hover {
         transform: translate(0px, 0);
         .navbar {
           transform: translate(0px, 0);
+        }
+        .logo-box{
+          transform: translate(0, 0);
         }
       }
     }
@@ -148,6 +160,16 @@
     bottom: 0;
     right: -17px;
   }
+  .logo-box {
+    transition: all .28s ease-out;
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+  }
   .theme-switch{
     position: absolute;
     bottom:0;
@@ -156,10 +178,6 @@
     background: @side-bar-bg*0.01;
     line-height:40px;
     text-align: center;
-  }
-  .logo-box {
-    font-size: 30px;
-    color: #fff;
   }
 }
 
