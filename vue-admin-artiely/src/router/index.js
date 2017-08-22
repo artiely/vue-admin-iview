@@ -8,7 +8,9 @@ import List from '@/components/views/List'
 import UserInfo from '@/components/views/UserInfo'
 import UserList from '@/components/views/UserList'
 import E404 from '@/components/pages/E404'
+import Register from '@/components/pages/Register'
 import Chart from '@/components/views/Chart'
+import Table from '@/components/views/Table'
 // 异步加载示例
 // const Chart = () => ({
 //   // 需要加载的组件. 应当是一个 Promise
@@ -67,6 +69,11 @@ const routes = [
         path: '/userList',
         name: 'userList',
         component: UserList
+      },
+      {
+        path: '/table',
+        name: 'table',
+        component: Table
       }
     ]
   },
@@ -74,6 +81,11 @@ const routes = [
     path: '/login',
     name: 'login',
     component: Login
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: Register
   },
   {
     path: '/error404',

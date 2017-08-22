@@ -4,7 +4,8 @@
     </div>
     <Modal class="login-modal" v-model="loginModal" width="360" :closable="false" :mask-closable="false">
       <div>
-        <h2 style="margin:10px;color:#abcdef;text-align:center">Artiely-Admin</h2>
+        <h2 style="margin:10px;color:#abcdef;text-align:center">
+          <img :src="require('@/assets/img/logo.png')" alt="" height="50"></h2>
         <Form ref="formValidate" :model="formValidate" :rules="ruleValidate">
           <Form-item prop="name">
             <Input v-model="formValidate.name" placeholder="请输入姓名"></Input>
@@ -20,7 +21,7 @@
             </Checkbox-group>
             </Col>
             <Col span="12">
-            <a style="float:right">新用户注册</a>
+            <a style="float:right" @click="toRegister">新用户注册</a>
             </Col>
           </Row>
 
@@ -74,6 +75,9 @@
             }
           }, 2000)
         })
+      },
+      toRegister () {
+        this.$router.push('/register')
       }
     }
   }

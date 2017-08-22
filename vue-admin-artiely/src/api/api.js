@@ -40,10 +40,35 @@ const userList = params => {
   })
 }
 
+/**
+ * 提交用户注册信息
+ * @param params
+ */
+const postUserInfo = params => {
+  return fetch({
+    url: '',
+    method: 'post',
+    data: params
+  })
+}
+
+/**
+ * 验证邮箱 token是否过期
+ * @param params
+ */
+const checkToken = params => {
+  return fetch({
+    url: '',
+    method: 'get',
+    params: params
+  })
+}
 const apiList = {
   orderList,
   articleList,
-  userList
+  userList,
+  postUserInfo,
+  checkToken
 }
 
 export default apiList
