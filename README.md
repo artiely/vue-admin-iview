@@ -5,19 +5,21 @@
 > 目前还是只是一个管理系统模板 ，持续更新完善中，欢迎提意见，模板更新完成后 会用node写后端，如果对您有帮助，您可以点右上角 "Star" 支持一下 谢谢！ ^_^
 ## 项目截图
 ### 登录
-![](login.png)
+![](img/登录.png)
+### 注册
+![](img/注册.png)
 ### 首页
-![](1.png)
+![](img/首页.png)
 ### 主题切换
-![](2.png)
+![](img/换肤.png)
 ### 搜索
-![](add.png)
+![](img/搜索.png)
 ### 编辑
-![](edit.png)
+![](img/编辑.png)
 ### 图表
-![](chart.png)
+![](img/图表.png)
 ### 响应式
-<img src='17.png' width='300'><img src='74.png' width='300'>
+<img src='img/ip5.png' width='300'> <img src='img/ip5_1.png' width='300'>
 
 
 ## 技术栈
