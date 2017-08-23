@@ -9,6 +9,7 @@ import Table from '@/components/views/Table'
 import Login from '@/components/pages/Login'
 import E404 from '@/components/pages/E404'
 import Register from '@/components/pages/Register'
+import Icon from '@/components/views/Icon'
 
 // 异步加载示例
 // const Chart = () => ({
@@ -38,13 +39,13 @@ const routes = [
     component: Home,
     redirect: '/index',
     hidden: true, // 控制当前菜单是否展示
-    icon: 'home',
+    icon: 'icon-wujiaoxing',
     children: [  // 所有只有一级的导航放到这里，并指定level=1
       {
         path: '/index',
         name: 'index',
         component: Index,
-        icon: 'heart',
+        icon: 'icon-wujiaoxing',
         // hidden: true,
         level: 1,
         meta: {
@@ -58,7 +59,7 @@ const routes = [
     path: '/',
     name: '列表页',
     component: Home,
-    icon: 'star',
+    icon: 'icon-createtask_fill',
     meta: {
       requiresAuth: true, // 是否需要登录
       search: true // 是否可搜索
@@ -69,7 +70,7 @@ const routes = [
         name: 'chart',
         component: Chart,
         level: 1,
-        icon: 'ios-pie',
+        icon: 'icon-dynamic_fill',
         meta: {
           requiresAuth: true
         }
@@ -87,7 +88,7 @@ const routes = [
         path: '/userInfo',
         name: 'userInfo',
         component: UserInfo,
-        icon: 'star'
+        icon: 'icon-addpeople_fill'
       },
       {
         path: '/userList',
@@ -98,6 +99,13 @@ const routes = [
         path: '/table',
         name: 'table',
         component: Table
+      },
+      {
+        path: '/icon',
+        name: 'icon',
+        level: 1,
+        icon: 'icon-emoji_fill',
+        component: Icon
       }
     ]
   },
