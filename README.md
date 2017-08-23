@@ -18,6 +18,8 @@
 ![](img/编辑.png)
 ### 图表
 ![](img/图表.png)
+### 字体图标
+![](img/图标.png)
 ### 响应式
 <img src='img/ip5.png' width='300'> <img src='img/ip5_1.png' width='300'>
 
