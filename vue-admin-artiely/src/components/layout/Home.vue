@@ -5,27 +5,31 @@
       <!-- logo -->
       <div style="height:50px;" class="logo-box">
         <img :src="require('@/assets/img/logo.png')" alt="" height="50" v-show="state.sidebar.opened">
-        <img src="https://file.iviewui.com/dist/76ecb6e76d2c438065f90cd7f8fa7371.png" alt="" height="40"  width="40" style="position: absolute;top: 5px;left: 0"  v-show="!state.sidebar.opened">
+        <img src="https://file.iviewui.com/dist/76ecb6e76d2c438065f90cd7f8fa7371.png" alt="" height="40" width="40"
+             style="position: absolute;top: 5px;left: 0" v-show="!state.sidebar.opened">
       </div>
       <!-- logo /-->
       <!-- 左侧导航 -->
       <nav-bar>
         <Menu width="220" :theme="theme" :accordion="true" @on-select="selectFn">
-          <div v-for="(item,index) in menu " :key="item._id">
-            <Submenu :name="index" v-if="item.children">
+          <div v-for="(item,index) in menu " :key="index">
+            <Submenu :name="index" v-if="item.children && !item.hidden"><!--有子级并且不隐藏的才被渲染-->
               <template slot="title">
                 <Icon :type="item.icon?item.icon:'checkmark'"></Icon>
-                {{item.name}}
+                {{item.name}}  <!--父级 父级路径为 '/'-->
               </template>
-              <Menu-item :name="sub.url" v-for="sub in item.children" :key="sub._id">
+              <Menu-item :name="sub.path" v-for="(sub,i) in item.children" :key="i" v-if="sub.level!=1">
                 <Icon :type="sub.icon?sub.icon:'checkmark'"></Icon>
-                {{sub.name}}
+                {{sub.name}}  <!--展开的子级 级别不为1的为子级-->
               </Menu-item>
             </Submenu>
-            <Menu-item :name="item.url" v-else>
-              <Icon :type="item.icon?item.icon:'checkmark'"></Icon>
-              {{item.name}}
-            </Menu-item>
+            <div>
+              <!--子级 level=1 并且不显示的 -->
+              <Menu-item :name="sub.path" v-for="(sub,i) in item.children" :key="i" v-if="sub.level==1 &&!sub.hidden">
+                <Icon :type="sub.icon?sub.icon:'checkmark'"></Icon>
+                {{sub.name}}  <!--只有一级 级别为1 的视为无子级的 单独菜单-->
+              </Menu-item>
+            </div>
           </div>
         </Menu>
       </nav-bar>
@@ -125,7 +129,7 @@
   import THeader from '@/components/layout/header/THeader'
   import NavBar from '@/components/layout/navbar/NavBar'
   import Container from '@/components/layout/container/Container'
-  import menu from '@/api/menu'
+  import menu from '@/router/menu'
 
   export default {
     name: 'full',
