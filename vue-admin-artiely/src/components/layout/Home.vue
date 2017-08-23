@@ -10,23 +10,24 @@
       </div>
       <!-- logo /-->
       <!-- 左侧导航 -->
-      <nav-bar>
+      <nav-bar style="padding-bottom: 80px">
         <Menu width="220" :theme="theme" :accordion="true" @on-select="selectFn">
           <div v-for="(item,index) in menu " :key="index">
             <Submenu :name="index" v-if="item.children && !item.hidden"><!--有子级并且不隐藏的才被渲染-->
               <template slot="title">
-                <Icon :type="item.icon?item.icon:'checkmark'"></Icon>
+                <!--<Icon :type="item.icon?item.icon:'checkmark'"></Icon>-->
+                <i class="icon iconfont " :class="item.icon ? item.icon :'icon-collection'"></i>
                 {{item.name}}  <!--父级 父级路径为 '/'-->
               </template>
               <Menu-item :name="sub.path" v-for="(sub,i) in item.children" :key="i" v-if="sub.level!=1">
-                <Icon :type="sub.icon?sub.icon:'checkmark'"></Icon>
+                <i class="icon iconfont " :class="sub.icon ? sub.icon : 'icon-collection'"></i>
                 {{sub.name}}  <!--展开的子级 级别不为1的为子级-->
               </Menu-item>
             </Submenu>
             <div>
               <!--子级 level=1 并且不显示的 -->
               <Menu-item :name="sub.path" v-for="(sub,i) in item.children" :key="i" v-if="sub.level==1 &&!sub.hidden">
-                <Icon :type="sub.icon?sub.icon:'checkmark'"></Icon>
+                <i class="icon iconfont " :class="sub.icon ? sub.icon :'icon-collection'"></i>
                 {{sub.name}}  <!--只有一级 级别为1 的视为无子级的 单独菜单-->
               </Menu-item>
             </div>
