@@ -4,7 +4,7 @@
       <Col>
       <Card>
         <div class="main markdown">
-          <h1>IconFont 图标 <span style="font-size: 16px">点击图表复制代码到粘贴板</span></h1>
+          <h1>IconFont 图标 <span style="font-size: 16px">点击图标复制代码到粘贴板</span></h1>
           复制标签 / 复制class
           <i-switch v-model="isClass">
             <Icon type="android-done" slot="open"></Icon>
