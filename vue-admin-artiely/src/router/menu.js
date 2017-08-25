@@ -9,7 +9,7 @@ import Table from '@/components/views/Table'
 import Login from '@/components/pages/Login'
 import E404 from '@/components/pages/E404'
 import Register from '@/components/pages/Register'
-import Icon from '@/components/views/Icon'
+import Icon from '@/components/pages/Icon'
 
 // 异步加载示例
 // const Chart = () => ({
