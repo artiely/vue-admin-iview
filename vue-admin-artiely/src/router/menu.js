@@ -66,6 +66,43 @@ const menu = [
   },
   {
     path: '/',
+    name: '页面',
+    level: 0,
+    icon: 'icon-manage_fill',
+    fixed: false,
+    children: [
+      {
+        level: 1,
+        path: '/error404',
+        children: [],
+        fixed: false,
+        name: '404'
+      },
+      {
+        level: 1,
+        path: '/notfound',
+        children: [],
+        fixed: false,
+        name: 'Not found'
+      },
+      {
+        level: 1,
+        path: '/login',
+        children: [],
+        fixed: false,
+        name: '登录'
+      },
+      {
+        level: 1,
+        path: '/register',
+        children: [],
+        fixed: false,
+        name: '注册'
+      }
+    ]
+  },
+  {
+    path: '/',
     name: '管理',
     level: 0,
     icon: 'icon-manage_fill',
