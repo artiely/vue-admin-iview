@@ -21,7 +21,6 @@
   </div>
 </template>
 <script>
-  import * as orderList from '@/api'
   export default {
     name: 'list',
     components: {},
@@ -34,7 +33,7 @@
           page: 1,
           limit: 10
         },
-        listData: [],// @:data
+        listData: [], // @:data
         columns1: [
           { // @:columns
             type: 'selection', // 开启checkbox
