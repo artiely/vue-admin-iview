@@ -2,7 +2,7 @@ import Vue from 'vue'
 import store from '@/store'
 import Router from 'vue-router'
 import iView from 'iview'
-import routes from './menu'
+import routes from './routes'
 // import Cookies from 'js-cookie'
 Vue.use(iView)
 Vue.use(Router)

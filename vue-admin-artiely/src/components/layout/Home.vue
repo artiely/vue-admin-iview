@@ -11,24 +11,23 @@
       <!-- logo /-->
       <!-- 左侧导航 -->
       <nav-bar style="padding-bottom: 80px">
-        <Menu width="220" :theme="theme" :accordion="true" @on-select="selectFn">
+        <Menu width="220" :theme="theme" :accordion="true" @on-select="selectFn" :active-name="$route.path">
           <div v-for="(item,index) in menu " :key="index">
-            <Submenu :name="index" v-if="item.children && !item.hidden"><!--有子级并且不隐藏的才被渲染-->
+            <Submenu :name="index" v-if="item.children && item.children.length>0 && !item.hidden">
               <template slot="title">
-                <!--<Icon :type="item.icon?item.icon:'checkmark'"></Icon>-->
                 <i class="icon iconfont " :class="item.icon ? item.icon :'icon-collection'"></i>
-                {{item.name}}  <!--父级 父级路径为 '/'-->
+                {{item.name}}
               </template>
-              <Menu-item :name="sub.path" v-for="(sub,i) in item.children" :key="i" v-if="sub.level!=1">
+              <Menu-item :name="sub.path" v-for="(sub,i) in item.children" :key="i" v-if="!sub.hidden">
                 <i class="icon iconfont " :class="sub.icon ? sub.icon : 'icon-collection'"></i>
-                {{sub.name}}  <!--展开的子级 级别不为1的为子级-->
+                {{sub.name}}
               </Menu-item>
             </Submenu>
             <div>
-              <!--子级 level=1 并且不显示的 -->
-              <Menu-item :name="sub.path" v-for="(sub,i) in item.children" :key="i" v-if="sub.level==1 &&!sub.hidden">
-                <i class="icon iconfont " :class="sub.icon ? sub.icon :'icon-collection'"></i>
-                {{sub.name}}  <!--只有一级 级别为1 的视为无子级的 单独菜单-->
+              <Menu-item :name="item.path" :key="index"
+                         v-if="item.children.length==0 && !item.hidden && item.level!=0 ">
+                <i class="icon iconfont " :class="item.icon ? item.icon :'icon-collection'"></i>
+                {{item.name}}
               </Menu-item>
             </div>
           </div>
@@ -131,6 +130,7 @@
   import NavBar from '@/components/layout/navbar/NavBar'
   import Container from '@/components/layout/container/Container'
   import menu from '@/router/menu'
+  import Cookies from 'js-cookie'
 
   export default {
     name: 'full',
@@ -168,7 +168,12 @@
         }
       }
     },
-    created () {},
+    created () {
+      console.log(this.$route.path)
+      if (Cookies.getJSON('menu')) {
+        this.menu = Cookies.getJSON('menu')
+      }
+    },
     watch: {},
     computed: {
       state () {
@@ -218,6 +223,7 @@
        * 选择菜单
        */
       selectFn (a) {
+        console.log(a, this.$route.path)
         this.$router.push({
           path: a
         })

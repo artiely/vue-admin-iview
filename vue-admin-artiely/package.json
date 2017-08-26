@@ -21,6 +21,7 @@
     "vue-echarts-v3": "^1.0.4",
     "vue-i18n": "^5.0.3",
     "vue-router": "^2.3.1",
+    "vuedraggable": "^2.14.1",
     "vuex": "^2.3.1"
   },
   "devDependencies": {
