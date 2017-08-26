@@ -191,10 +191,13 @@
     height: 100%;
     width: 100%;
   }
+.bg{
 
+}
   #app {
     width: 100%;
     height: 100%;
+    overflow: scroll;
   }
 
   .help {
