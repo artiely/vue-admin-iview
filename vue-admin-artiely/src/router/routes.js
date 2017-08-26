@@ -1,39 +1,16 @@
 import Home from '@/components/layout/Home'
 import Index from '@/components/views/Index'
-import List from '@/components/views/List'
-import UserInfo from '@/components/views/UserInfo'
-import UserList from '@/components/views/UserList'
-import Chart from '@/components/views/Chart'
-import Table from '@/components/views/Table'
 
-import Login from '@/components/pages/Login'
-import E404 from '@/components/pages/E404'
-import Register from '@/components/pages/Register'
-import Icon from '@/components/pages/Icon'
-// import SetMenu from '@/components/pages/SetMenu'
-// import SetMenu2 from '@/components/pages/SetMenu2'
-import NotFound from '@/components/pages/NotFound'
-
-// 异步加载示例
-// const Chart = () => ({
-//   // 需要加载的组件. 应当是一个 Promise
-//   component: import('@/components/views/Chart'),
-//   // loading 时应当渲染的组件
-//   loading: '',
-//   // 出错时渲染的组件
-//   error: E404,
-//   // 渲染 loading 组件前的等待时间。默认：200ms.
-//   delay: 200,
-//   // 最长等待时间。超出此时间则渲染 error 组件。默认：Infinity
-//   timeout: 3000
-// })
-
-/**
- * hidden[bool] 控制当前菜单是否显示(包括子级) level=1 的除外
- * level [1]    当前菜单是否单独展示
- * icon [iconfont 的className] 当前导航的图表
- * 没有子级的路由不会在菜单展示
- * */
+const Chart = () => import('@/components/views/Chart')
+const NotFound = () => import('@/components/pages/NotFound')
+const Register = () => import('@/components/pages/Register')
+const E404 = () => import('@/components/pages/E404')
+const Icon = () => import('@/components/pages/Icon')
+const Login = () => import('@/components/pages/Login')
+const Table = () => import('@/components/views/Table')
+const UserList = () => import('@/components/views/UserList')
+const UserInfo = () => import('@/components/views/UserInfo')
+const List = () => import('@/components/views/List')
 
 const routes = [
   {
@@ -41,42 +18,22 @@ const routes = [
     name: 'home',
     component: Home,
     redirect: '/index',
-    hidden: true, // 控制当前菜单是否展示
-    icon: 'icon-wujiaoxing',
     children: [  // 所有只有一级的导航放到这里，并指定level=1
       {
         path: '/index',
         name: 'index',
         component: Index,
         icon: 'icon-wujiaoxing',
-        // hidden: true,
         level: 1,
         meta: {
           requiresAuth: true, // 是否需要登录
           search: false // 是否可搜索
         }
-      }
-    ]
-  },
-  {
-    path: '/',
-    name: '列表页',
-    component: Home,
-    icon: 'icon-createtask_fill',
-    meta: {
-      requiresAuth: true, // 是否需要登录
-      search: true // 是否可搜索
-    },
-    children: [
+      },
       {
         path: '/chart',
         name: 'chart',
-        component: Chart,
-        level: 1,
-        icon: 'icon-dynamic_fill',
-        meta: {
-          requiresAuth: true
-        }
+        component: Chart
       },
       {
         path: '/list',
@@ -106,32 +63,8 @@ const routes = [
       {
         path: '/icon',
         name: 'icon',
-        level: 1,
-        icon: 'icon-emoji_fill',
         component: Icon
-      }
-    ]
-  },
-  {
-    path: '/',
-    name: '管理',
-    component: Home,
-    icon: 'icon-manage_fill',
-    meta: {
-      requiresAuth: true, // 是否需要登录
-      search: true // 是否可搜索
-    },
-    children: [
-      // {
-      //   path: '/setMenu',
-      //   name: 'setMenu',
-      //   component: SetMenu
-      // },
-      // {
-      //   path: '/setMenu2',
-      //   name: 'setMenu2',
-      //   component: SetMenu2
-      // },
+      },
       {
         path: '/notFound',
         name: 'notFound',
