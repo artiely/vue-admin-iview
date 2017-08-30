@@ -11,6 +11,7 @@ const Table = () => import('@/components/views/Table')
 const UserList = () => import('@/components/views/UserList')
 const UserInfo = () => import('@/components/views/UserInfo')
 const List = () => import('@/components/views/List')
+const Filter = () => import('@/components/pages/Filter')
 
 const routes = [
   {
@@ -64,6 +65,11 @@ const routes = [
         path: '/icon',
         name: 'icon',
         component: Icon
+      },
+      {
+        path: '/filter',
+        name: 'filter',
+        component: Filter
       },
       {
         path: '/notFound',

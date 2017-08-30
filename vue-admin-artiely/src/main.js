@@ -16,6 +16,12 @@ import './assets/styles/layout/layout.less' // 引入布局样式
 import './assets/styles/cover/cover.less' // 覆盖样式
 import './assets/styles/base/base.less'
 
+import * as filters from './common/filter'
+// register global utility filters.
+Object.keys(filters).forEach(key => {
+  Vue.filter(key, filters[key])
+})
+
 var winWidth = document.documentElement.clientWidth
 if (winWidth <= 600) {
   store.commit('CLOSE_SLIDEBAR')

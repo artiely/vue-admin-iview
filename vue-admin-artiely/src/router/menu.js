@@ -61,6 +61,14 @@ const menu = [
         children: [],
         fixed: false,
         icon: 'icon-emoji_fill'
+      },
+      {
+        level: 1,
+        path: '/filter',
+        name: 'filter',
+        children: [],
+        fixed: false,
+        icon: 'icon-emoji_fill'
       }
     ]
   },
