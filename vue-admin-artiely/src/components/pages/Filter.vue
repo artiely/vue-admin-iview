@@ -26,7 +26,7 @@
           <p>{{itme.now1}} =>{{itme.now1 | timeFormat}}</p>
           <p>时间格式改变</p>
           <p>{{itme.now2}} =>{{itme.now2 | timeFormat('YY/MM/DD HH:mm')}}</p>
-          <h6>欢迎分享</h6>
+          <h6 class="Button--primary Button--blue">欢迎分享</h6>
         </Card>
       </i-col>
     </Row>
@@ -57,6 +57,13 @@
   }
 </script>
 <style scoped>
-
+  .Button--primary.Button--blue {
+    color: #fff;
+    padding: 10px;
+    background: -webkit-gradient(linear,left top,right top,from(#15b982),to(#01d18b));
+    background: linear-gradient(90deg,#15b982,#01d18b);
+    -webkit-box-shadow: 0 3px 6px rgba(0,0,0,.16);
+    box-shadow: 0 3px 6px rgba(0,0,0,.16);
+  }
 </style>
 
