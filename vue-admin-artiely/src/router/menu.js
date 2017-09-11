@@ -2,8 +2,7 @@ const menu = [
   {
     path: '/index',
     name: 'index',
-    icon: 'icon-wujiaoxing',
-    // hidden: true,
+    icon: 'icon-dynamic_fill',
     level: 1,
     sort: 1,
     children: [],
