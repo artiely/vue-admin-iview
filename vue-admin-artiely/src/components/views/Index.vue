@@ -1,9 +1,9 @@
 <template>
   <div class="index">
-    <Row :gutter="16">
+    <Row :gutter="8">
       <Col :md='{span:8}'>
       <Row>
-        <Col span="12" v-for="(item,index) in cardMessage" :key="index" class="cardMessage">
+        <Col span="12" v-for="(item,index) in cardMessage" :key="index" class="cardMessage"  style="padding: 0">
         <Card>
           <Row>
             <Col span="8">
@@ -35,7 +35,7 @@
       </Col>
     </Row>
 
-    <Row :gutter="16">
+    <Row :gutter="8">
       <Col :md='{span:8}'>
       <Card style="height: 320px">
         <p slot="title">

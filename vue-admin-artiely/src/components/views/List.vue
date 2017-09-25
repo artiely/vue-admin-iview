@@ -88,7 +88,8 @@
         <a href="#" slot="extra" @click.prevent="refresh">
           <Icon type="ios-loop-strong"></Icon>
         </a>
-        <Table :show-header="showHeader" :height="fixedHeader ? 300 : ''" :size="tableSize" :data="listData"
+        <Table :loading="loading2" :show-header="showHeader" :height="fixedHeader ? 300 : ''" :size="tableSize"
+               :data="listData"
                :columns="columns1" ref="table" @on-select="onSelect" @on-selection-change="onSelectionChange"></Table>
         <Page :total="100" show-sizer show-elevator @on-change="pageChange" style="margin-top: 10px"
               @on-page-size-change="PageSizeChange"></Page>
@@ -175,6 +176,7 @@
         detailModal: false,
         deleteTip: false,
         showHeader: true, // 是否显示表头 @:show-header
+        loading2: false, // 分页loading
         fixedHeader: false, // 是否固定表头 @:height
         tableSize: 'small', // @:size
         DateReady: false, // 判断异步数据加载完成，避免报错
@@ -321,12 +323,15 @@
        * @params:category 分类 page：页码 limit:条数
        * */
       getData (params) {
+        this.loading2 = true
         this.$api.orderList(params).then((res) => {
           if (!res.error) {
             this.listData = res.results
             this.DateReady = true
+            this.loading2 = false
           } else {
             this.$Message.error(res.msg)
+            this.loading2 = false
           }
         })
       },
