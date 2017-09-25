@@ -15,7 +15,7 @@
   "dependencies": {
     "axios": "^0.16.2",
     "clipboard": "^1.7.1",
-    "iview": "^2.0.0-rc.18",
+    "iview": "^2.4.0",
     "js-cookie": "^2.1.4",
     "moment": "^2.18.1",
     "vue": "^2.3.3",
