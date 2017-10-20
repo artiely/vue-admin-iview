@@ -62,19 +62,29 @@
         <div class="messageBox" slot='msg-icon'>
           <Row>
             <Col :xs='{span:0}' :sm='{span:24}'>
+
             <div class="iconBox" @click="searchFilter" :class="{'active':state.searchState.show}">
+              <Tooltip placement="bottom" content="搜索" >
               <Icon type="ios-search"></Icon>
+              </Tooltip>
             </div>
+
+
             <div class="iconBox">
+              <Tooltip placement="bottom" content="通知" >
               <Badge count="3">
                 <Icon type="ios-bell">
                 </Icon>
               </Badge>
+              </Tooltip>
             </div>
+
             <div class="iconBox">
+              <Tooltip placement="bottom" content="Language" >
               <svg class="icon" aria-hidden="true" @click="changeLang">
                 <use :xlink:href="state.lang.icon"></use>
               </svg>
+                </Tooltip >
             </div>
             </Col>
           </Row>

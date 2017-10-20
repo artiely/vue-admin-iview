@@ -159,6 +159,8 @@
   </div>
 </template>
 <script>
+  import elementResizeDetectorMaker from 'element-resize-detector'
+  var erd = elementResizeDetectorMaker()
   export default {
     name: 'list',
     components: {},
@@ -426,6 +428,9 @@
     },
     created () {
       this.getData(this.params)
+    },
+    mounted () {
+      erd.listenTo(window, 'resize', this.handleResize)
     }
   }
 </script>

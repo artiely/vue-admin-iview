@@ -9,8 +9,9 @@
   bottom: 0;
   //路由内容
   .main-wrapper {
-    transition: all .28s ease-out;
-    margin-left: 190px;
+    //transition: all .28s ease-out;
+    //transition: all .28s linear; 这里注释掉了运动的动画时间，因为iview-table2.4加入了响应的功能后运动会卡顿
+    padding-left: 190px;
     position: absolute;
     right: 0;
     top: 0;
@@ -23,8 +24,10 @@
   &.hideSidebar {
     .side-wrapper {
       transform: translate(-150px, 0);
+      overflow: hidden;
       .navbar {
         transform: translate(150px, 0);
+        overflow: hidden;
       }
       .logo-box{
         transform: translate(150px, 0);
@@ -40,7 +43,7 @@
       }
     }
     .main-wrapper {
-      margin-left: 40px;
+      padding-left: 40px;
     }
   }
   // 小屏幕
@@ -64,7 +67,7 @@
       }
     }
     .main-wrapper {
-      margin-left: 40px;
+      padding-left: 40px;
     }
   }
 }

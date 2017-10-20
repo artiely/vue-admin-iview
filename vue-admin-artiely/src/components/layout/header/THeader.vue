@@ -7,8 +7,10 @@
     <!-- 伸缩按钮 /-->
     <!--是否全屏  -->
     <div class="expand-screen" @click="toggleScreen">
+      <Tooltip placement="bottom" content="全屏" >
       <Icon type="android-expand" v-if="!screen"></Icon>
       <Icon type="android-contract" v-if="screen"></Icon>
+        </Tooltip >
     </div>
     <!--是否全屏  /-->
     <!-- 消息类按钮 -->
