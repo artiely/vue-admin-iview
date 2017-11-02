@@ -39,21 +39,23 @@ window.onresize = function () {
 
 import zhLocale from 'iview/src/locale/lang/zh-CN'
 import enLocale from 'iview/src/locale/lang/en-US'
+import twLocale from 'iview/src/locale/lang/zh-TW'
 
 let lang = Cookies.getJSON('lang')
-if (lang && lang.type === 'CN') {
+if (lang && lang === 'CN') {
   Vue.config.lang = 'zh-CN'
-  store.dispatch('setLang', {icon: '#icon-zhongguo', type: 'CN'})
-} else if (lang && lang.type === 'EN') {
-  store.dispatch('setLang', {icon: '#icon-yingguo', type: 'EN'})
+  store.commit('SET_LANG', 'CN')
+} else if (lang && lang === 'EN') {
+  store.commit('SET_LANG', 'EN')
   Vue.config.lang = 'en-US'
 } else {
-  Vue.config.lang = 'zh-CN'
-  store.dispatch('setLang', {icon: '#icon-zhongguo', type: 'CN'})
+  Vue.config.lang = 'zh-TW'
+  store.commit('SET_LANG', 'TW')
 }
 
 Vue.locale('zh-CN', zhLocale)
 Vue.locale('en-US', enLocale)
+Vue.locale('zh-TW', twLocale)
 // 开启debug模式
 Vue.config.debug = true
 // import $ from 'jquery'

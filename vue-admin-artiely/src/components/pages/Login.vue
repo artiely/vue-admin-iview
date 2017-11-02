@@ -11,7 +11,7 @@
             <Input v-model="formValidate.name" placeholder="请输入姓名"></Input>
           </Form-item>
           <Form-item prop="password">
-            <Input v-model="formValidate.password" type="password" placeholder="请输入密码"></Input>
+            <Input v-model="formValidate.password" @keyup.native.enter="handleSubmit('formValidate')" type="password" placeholder="请输入密码"></Input>
           </Form-item>
 
           <Row>
@@ -36,6 +36,7 @@
   </div>
 </template>
 <script>
+  import Cookies from 'js-cookie'
   export default {
     name: 'login',
     data () {
@@ -65,7 +66,8 @@
             this.modal_loading = false
             if (valid) {
               this.$Message.success('登录成功!')
-              this.$router.push('/')
+              Cookies.set('token', this.formValidate.password)
+              this.$router.push('/index')
             } else {
               this.$Message.error('表单验证失败!')
               this.$Notice.warning({

@@ -13,14 +13,23 @@ const app = {
     router: {
       currentPageName: 'index'
     },
-    lang: {
-      icon: '#icon-zhongguo',
-      type: 'CN'
-    },
-    searchState: {
-      show: false,
-      params: ''
-    }
+    langList: [
+      {
+        value: 'CN',
+        label: '中文简体'
+      },
+      {
+        value: 'TW',
+        label: '中文繁体'
+      },
+      {
+        value: 'EN',
+        label: 'English'
+      }
+    ],
+    lang: 'CN',
+    lock: '0', // 默认不锁
+    lockPage: '/index' // 锁屏前的页面
   },
   mutations: {
     /**
@@ -64,16 +73,13 @@ const app = {
       state.lang = payload
       Cookies.set('lang', payload)
     },
-    /**
-     * 搜索过滤
-     */
-    SEARCH_FILTER: (state, payload) => {
-      if (!payload.params.meta.search) { // 路由元信息设置是否有搜索模块
-        iView.Message.error('该页不提供搜索!')
-        return
-      } else {
-        Object.assign(state.searchState, {show: !state.searchState.show}, payload)
-      }
+    SET_LOCK: (state, payload) => {
+      state.lock = payload
+      Cookies.set('lock', payload)
+    },
+    SET_LOCK_PAGE: (state, payload) => {
+      state.lockPage = payload
+      Cookies.set('lockPage', payload)
     }
   },
   actions: {
@@ -82,12 +88,6 @@ const app = {
     },
     getCurrentPageName: ({commit}, payload) => {
       commit('GET_CURRENT_PAGE_NAME', payload)
-    },
-    setLang: ({commit}, payload) => {
-      commit('SET_LANG', payload)
-    },
-    searchFilter: ({commit}, payload) => {
-      commit('SEARCH_FILTER', payload)
     }
   }
 }

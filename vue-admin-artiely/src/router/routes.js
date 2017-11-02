@@ -8,10 +8,10 @@ const E404 = () => import('@/components/pages/E404')
 const Icon = () => import('@/components/pages/Icon')
 const Login = () => import('@/components/pages/Login')
 const Table = () => import('@/components/views/Table')
-const UserList = () => import('@/components/views/UserList')
 const UserInfo = () => import('@/components/views/UserInfo')
 const List = () => import('@/components/views/List')
 const Filter = () => import('@/components/pages/Filter')
+const Lock = () => import('@/components/layout/base/Lock')
 
 const routes = [
   {
@@ -19,7 +19,7 @@ const routes = [
     name: 'home',
     component: Home,
     redirect: '/index',
-    children: [  // 所有只有一级的导航放到这里，并指定level=1
+    children: [
       {
         path: '/index',
         name: 'index',
@@ -27,54 +27,65 @@ const routes = [
         icon: 'icon-wujiaoxing',
         level: 1,
         meta: {
-          requiresAuth: true, // 是否需要登录
-          search: false // 是否可搜索
+          requiresAuth: true // 是否需要登录
         }
       },
       {
         path: '/chart',
         name: 'chart',
-        component: Chart
+        component: Chart,
+        meta: {
+          requiresAuth: true // 是否需要登录
+        }
       },
       {
         path: '/list',
         name: 'list',
         component: List,
         meta: {
-          requiresAuth: true, // 是否需要登录
-          search: true // 是否可搜索
+          requiresAuth: true // 是否需要登录
         }
       },
       {
         path: '/userInfo',
         name: 'userInfo',
         component: UserInfo,
-        icon: 'icon-addpeople_fill'
-      },
-      {
-        path: '/userList',
-        name: 'userList',
-        component: UserList
+        icon: 'icon-addpeople_fill',
+        meta: {
+          requiresAuth: true // 是否需要登录
+        }
       },
       {
         path: '/table',
         name: 'table',
-        component: Table
+        component: Table,
+        meta: {
+          requiresAuth: true // 是否需要登录
+        }
       },
       {
         path: '/icon',
         name: 'icon',
-        component: Icon
+        component: Icon,
+        meta: {
+          requiresAuth: true // 是否需要登录
+        }
       },
       {
         path: '/filter',
         name: 'filter',
-        component: Filter
+        component: Filter,
+        meta: {
+          requiresAuth: true // 是否需要登录
+        }
       },
       {
         path: '/notFound',
         name: 'notFound',
-        component: NotFound
+        component: NotFound,
+        meta: {
+          requiresAuth: true // 是否需要登录
+        }
       }
     ]
   },
@@ -92,6 +103,11 @@ const routes = [
     path: '/error404',
     name: 'error404',
     component: E404
+  },
+  {
+    path: '/lock',
+    name: 'lock',
+    component: Lock
   },
   {
     path: '*',

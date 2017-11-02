@@ -56,35 +56,26 @@
           <Dropdown-menu slot="list">
             <Dropdown-item @click.native="modalUser=true">个人信息</Dropdown-item>
             <Dropdown-item @click.native="logout">退出登录</Dropdown-item>
+            <Dropdown-item @click.native="lock">锁定屏幕</Dropdown-item>
           </Dropdown-menu>
         </Dropdown>
         <!-- 用户信息 /-->
         <div class="messageBox" slot='msg-icon'>
           <Row>
             <Col :xs='{span:0}' :sm='{span:24}'>
-
-            <div class="iconBox" @click="searchFilter" :class="{'active':state.searchState.show}">
-              <Tooltip placement="bottom" content="搜索" >
-              <Icon type="ios-search"></Icon>
-              </Tooltip>
-            </div>
-
-
+              <Select v-model="lang" size="small" @on-change="changeLang"
+                      style="width:80px;position:relative;margin-top: -8px">
+                <Option v-for="item in langList" :value="item.value" :key="item.value">{{ item.label }}</Option>
+              </Select>
             <div class="iconBox">
-              <Tooltip placement="bottom" content="通知" >
+
               <Badge count="3">
-                <Icon type="ios-bell">
-                </Icon>
+                <Tooltip placement="bottom" content="通知">
+                  <Icon type="ios-bell">
+                  </Icon>
+                </Tooltip>
               </Badge>
-              </Tooltip>
-            </div>
 
-            <div class="iconBox">
-              <Tooltip placement="bottom" content="Language" >
-              <svg class="icon" aria-hidden="true" @click="changeLang">
-                <use :xlink:href="state.lang.icon"></use>
-              </svg>
-                </Tooltip >
             </div>
             </Col>
           </Row>
@@ -151,9 +142,10 @@
     },
     data () {
       const validatePass = (rule, value, callback) => {
+        let password = Cookies.get('token')
         if (value === '') {
           callback(new Error('请输入密码'))
-        } else if (value !== '123456') {
+        } else if (value !== password) {
           callback(new Error('密码错误'))
         } else {
           callback()
@@ -164,6 +156,7 @@
         themeBool: true,
         modalUser: false,
         modal_loading: false,
+        lang: 'CN',
         formValidate: {
           check_password: ''
         },
@@ -179,15 +172,17 @@
       }
     },
     created () {
-      console.log(this.$route.path)
       if (Cookies.getJSON('menu')) {
         this.menu = Cookies.getJSON('menu')
       }
+      this.lang = this.$store.state.app.lang
     },
-    watch: {},
     computed: {
       state () {
         return this.$store.state.app
+      },
+      langList () {
+        return this.$store.state.app.langList
       }
     },
     mounted () {
@@ -206,27 +201,17 @@
             } else {
               this.$Notice.warning({
                 title: '提示',
-                desc: '密码 : 123456'
+                desc: '请求被拒绝'
               })
               this.$Message.error('表单验证失败!')
             }
             this.modal_loading = false
-          }, 2000)
+          }, 1000)
         })
       },
       /* 改变语言 */
       changeLang () {
-        if (this.state.lang.icon === '#icon-yingguo') {
-          this.$store.dispatch('setLang', {
-            icon: '#icon-zhongguo',
-            type: 'CN'
-          })
-        } else {
-          this.$store.dispatch('setLang', {
-            icon: '#icon-yingguo',
-            type: 'EN'
-          })
-        }
+        this.$store.commit('SET_LANG', this.lang)
         window.location.reload()
       },
       /**
@@ -242,16 +227,9 @@
        *退出
        */
       logout () {
+        Cookies.remove('token')
         this.$router.push('/login')
         this.$Message.success('退出成功')
-      },
-      /**
-       * 搜索过滤
-       */
-      searchFilter () {
-        this.$store.dispatch('searchFilter', {
-          params: this.$route
-        })
       },
       themeChange (state) {
         if (state) {
@@ -259,6 +237,14 @@
         } else {
           this.theme = 'light'
         }
+      },
+      lock () {
+        // 设置为锁定
+        this.$store.commit('SET_LOCK', '1')
+        // 获取当前的页面path
+        console.log(this.$route.path)
+        this.$store.commit('SET_LOCK_PAGE', this.$route.path)
+        this.$router.push('/lock')
       }
     }
   }

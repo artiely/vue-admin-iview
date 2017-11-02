@@ -1,7 +1,7 @@
 <template>
   <div class="list">
     <!-- 搜索 v-show="state.searchState.show"-->
-    <Row class="search-filter" :class="{'active':state.searchState.show}">
+    <Row class="search-filter" :class="{'active':searchState}">
       <Col>
       <Card>
         <Form :label-width="80" inline>
@@ -18,38 +18,6 @@
               <Option value="前端">前端</Option>
               <Option value="App">App</Option>
             </Select>
-          </Form-item>
-          <Form-item label="日期控件">
-            <Row>
-              <Col span="11">
-              <Date-picker type="date" placeholder="选择日期" v-model="formItem.date"></Date-picker>
-              </Col>
-              <Col span="2" style="text-align: center">
-              -</Col>
-              <Col span="11">
-              <Time-picker type="time" placeholder="选择时间" v-model="formItem.time"></Time-picker>
-              </Col>
-            </Row>
-          </Form-item>
-          <Form-item label="单选框">
-            <Radio-group v-model="formItem.radio">
-              <Radio label="male">男</Radio>
-              <Radio label="female">女</Radio>
-            </Radio-group>
-          </Form-item>
-          <Form-item label="多选框">
-            <Checkbox-group v-model="formItem.checkbox">
-              <Checkbox label="吃饭"></Checkbox>
-              <Checkbox label="睡觉"></Checkbox>
-              <Checkbox label="跑步"></Checkbox>
-              <Checkbox label="看电影"></Checkbox>
-            </Checkbox-group>
-          </Form-item>
-          <Form-item label="开关">
-            <i-switch v-model="formItem.switch" size="large">
-              <span slot="open">开启</span>
-              <span slot="close">关闭</span>
-            </i-switch>
           </Form-item>
           <div class="clearfix" style="border-top:1px solid #eee;margin-top:-15px;padding-top:10px">
           <span class="pull-right">
@@ -79,6 +47,7 @@
             <Icon type="trash-a"></Icon>
             新增
           </Button>
+          <Button type="primary" @click="searchShow" shape="circle" ><Icon type="funnel"></Icon> 筛选</Button>
           <Button type="error" v-if="selection.length>0" @click="deleteTip=true">
             <Icon type="trash-a"></Icon>
             批量删除
@@ -174,6 +143,7 @@
           radio: '',
           checkbox: []
         },
+        searchState: false,
         editModal: false,
         detailModal: false,
         deleteTip: false,
@@ -315,6 +285,9 @@
       }
     },
     methods: {
+      searchShow () {
+        this.searchState = !this.searchState
+      },
       /**
        * 刷新页面请求
        * */
