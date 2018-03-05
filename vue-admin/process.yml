@@ -1,5 +1,5 @@
 apps:
-  - script   : vue-admin/prod.server.js
+  - script   : prod.server.js
     name : 'iview-admin'
     watch  : true
     env    :
@@ -18,6 +18,6 @@ deploy :
     path : /www/iview-admin/production
     ssh_options : StrictHostKeyChecking=no
     pre-deploy : git fetch --all
-    post-deploy : 'cd vue-admin && npm install && npm run build && pm2 startOrRestart process.yml --env production'
+    post-deploy : 'npm install && npm run build && pm2 startOrRestart process.yml --env production'
     env : 
       NODE_ENV : production
