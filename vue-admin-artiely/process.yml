@@ -1,0 +1,23 @@
+apps:
+  - script   : prod.server.js
+    name : 'iview-admin'
+    watch  : true
+    env    :
+      NODE_ENV: development
+    env_production:
+      NODE_ENV: production
+deploy :
+  production :
+    user : root
+    key : C:/Windows/SSH-ubuntu.pem
+    host : 
+      - 120.78.174.212
+    port : 22
+    ref : origin/master
+    repo : git@github.com:artiely/vue-admin-iview.git
+    path : /www/iview-admin/production
+    ssh_options : StrictHostKeyChecking=no
+    pre-deploy : git fetch --all
+    post-deploy : 'npm install && npm run build && pm2 startOrRestart process.yml --env production'
+    env : 
+      NODE_ENV : production
