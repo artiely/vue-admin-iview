@@ -30,7 +30,7 @@
       <div slot="footer">
         <Button type="primary" size="large" long :loading="modal_loading" @click="handleSubmit('formValidate')">登录
         </Button>
-        <small style="text-align: center;display:block" class="subText">@copyright by Artiely</small>
+        <small style="text-align: center;display:block" class="subText">©copyright by Artiely</small>
       </div>
     </Modal>
   </div>
