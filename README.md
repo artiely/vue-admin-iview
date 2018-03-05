@@ -1,4 +1,4 @@
-# vue-admin-artiely
+# vue-admin
 
 > vue-admin by iview
 
