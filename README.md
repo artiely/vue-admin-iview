@@ -3,8 +3,11 @@
 > vue-admin by iview
 
 > 目前还是只是一个管理系统模板 ，持续更新完善中，欢迎提意见，模板更新完成后 会用node写后端，如果对您有帮助，您可以点右上角 "Star" 支持一下 谢谢！ ^_^
+# demo
+iview版 http://poorguy.me:9000
 
-demo http://poorguy.me:9000
+element版 https://github.com/artiely/element-admin
+
 ## 项目截图
 ### 登录
 ![](img/登录.png)
@@ -48,6 +51,8 @@ demo http://poorguy.me:9000
  > ...
 
 ## 项目结构
+
+这里推荐一个输出项目结构的node模块 `treeplus` https://github.com/artiely/treeplus
 ```bash
 ├─build                 // 打包环境
 │      
