@@ -1,10 +1,9 @@
 # vue-admin
 
 > vue-admin by iview
-
-> 目前还是只是一个管理系统模板 ，持续更新完善中，欢迎提意见，模板更新完成后 会用node写后端，如果对您有帮助，您可以点右上角 "Star" 支持一下 谢谢！ ^_^
+ ^_^
 # demo
-iview版 http://poorguy.me:9000
+ant-design版本 https://github.com/artiely/vue-admin  （推荐）
 
 element版 https://github.com/artiely/element-admin
 
